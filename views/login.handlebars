@@ -1,0 +1,54 @@
+<!-- Main -->
+<main class="columns col-12 main-form" id="main">
+  <div class="form-container columns col-4 col-md-8 col-lg-6">
+    <div class="desc-container columns col-12">
+      <h1 class="column col-12">Log In</h1>
+      <h2 class="column col-12">Start creating your unique portfolio!</h2>
+    </div>
+
+    <div id="login-error-msg-holder" class="column col-12 no-active">
+      <p id="login-error-msg">
+        Invalid username
+        <span id="error-msg-second-line">and/or password</span>
+      </p>
+    </div>
+
+    <form action="/login" method="post" id="login-form" class="columns col-12">
+      <div class="inputs-container columns col-12">
+        <label for="username">Username:</label><br />
+        <input
+          type="text"
+          name="username"
+          id="username"
+          class="login-form-field column col-12"
+          placeholder="Username"
+          required="required"
+        />
+        <label for="password">Password:</label><br />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="login-form-field column col-12"
+          placeholder="Password"
+          required="required"
+        />
+      </div>
+      <div class="button-container column col-12">
+        <input
+          type="submit"
+          value="Log In"
+          id="login-form-submit"
+          class="login-form-submit column col-12"
+        />
+      </div>
+    </form>
+    <!-- Join now -->
+    <div class="column col-12">
+      <p>
+        New to Yourtfolio?
+        <span><a href="#">Join now!</a></span>
+      </p>
+    </div>
+  </div>
+</main>

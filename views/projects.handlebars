@@ -1,0 +1,120 @@
+<!-- Main -->
+ <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<main id="main" class="column col-12 main-projects">
+  {{! Programming section }}
+  <section class="programming-section columns col-12 col-md-12">
+    <div class="column col-12">
+    <h1 class="section-title">Programming</h1>
+    <div class="section-line column col-12"></div>
+    </div>
+
+
+    {{#if hasDatabaseError}}
+   <div>Sorry, there was a problem with the database:<br />
+{{theError}}
+   </div>
+   {{else}}
+    <div class="columns col-12 col-md-12 programming-container">
+      {{#each projects}}
+        {{#if pProgramming}}
+          <div
+            class="thumbnail-container column col-3"
+            id="thumbnail-container"
+          >
+          <a href="/projects/{{pId}}">
+            <div class="column col-12 col-md-12 thumbnail-image-container">
+              <img class="column col-12 col-md-12" src="{{pURL}}" alt="" />
+              <div class="overlay column col-12 col-md-12">
+                <div class="text">{{pOverlayName}}</div>
+              </div>
+            </div>
+            </a>
+            <div class="project-thumbnail-text columns col-12 col-md-12">
+              <div>
+                <h1 class="p-name">{{pName}}</h1>
+              </div>
+              <div class="span-container">
+                <span class="p-author">{{pAuthor}}<span
+                    class="p-date"
+                  >{{pDate}}</span></span>
+
+
+                    {{#if ../isAdmin}}
+
+    <div class="column col-12">
+      <a href="/projects/edit/{{pId}}">Edit</a>
+      <a href="/projects/delete/{{pId}}">Delete</a>
+    </div>
+
+    {{/if}}
+                 
+              </div>
+            </div>
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+  </section>
+  {{! Design desction }}
+  <section class="design-section columns col-12">
+    <div class="column col-12">
+    <h1 class="section-title">Design</h1>
+    <div class="section-line column col-12"></div>
+    </div>
+
+    <div class="columns col-12 design-container">
+
+      {{#each projects}}
+        {{#if pDesign}}
+
+          <div
+            class="thumbnail-container column col-3"
+            id="thumbnail-container"
+          >
+          <a href="/projects/{{pId}}">
+            <div class="column col-12 thumbnail-image-container">
+              <img class="column col-12" src="{{pURL}}" alt="" />
+              <div class="overlay column col-12">
+                <div class="text">{{pOverlayName}}</div>
+              </div>
+            </div>
+            </a>
+            <div class="project-thumbnail-text columns col-12">
+              <div>
+                <h1 class="p-name">{{pName}}</h1>
+              </div>
+              <div class="span-container">
+                <span class="p-author">{{pAuthor}}<span
+                    class="p-date"
+                  >{{pDate}}</span></span>
+
+                   {{#if loggedIn}}
+                    {{#if ../isAdmin}}
+
+    <div class="column col-12">
+      <a href="/projects/edit/{{pId}}">Edit</a>
+      <a href="/projects/delete/{{pId}}">Delete</a>
+    </div>
+
+    {{/if}}
+    {{/if}}
+                  
+                
+              </div>
+            </div>
+          </div>
+
+        {{/if}}
+      {{/each}}
+      {{/if}}
+
+      {{#if loggedIn}}
+      {{#if isAdmin}}
+      <a href="/projects/new">Add new project!</a>
+      {{/if}}
+      {{/if}}
+
+    </div>
+  </section>
+</main>

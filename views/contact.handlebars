@@ -1,0 +1,62 @@
+<!-- Main -->
+
+<main id="main" class="column col-12 main-contact">
+
+  <div class="column col-12">
+    <h1 class="section-title">Contact</h1>
+    <div class="section-line columns col-12"></div>
+  </div>
+
+  {{#if hasDatabaseError}}
+    <div>Sorry, there was a problem with the database:<br />
+      {{theError}}
+    </div>
+  {{else}}
+    <section class="contact-section columns col-12">
+
+      <div class="contacts columns col-4 col-md-12">
+        {{#each contacts}}
+          <div class="contact-container columns col-12">
+            <img class="column col-2" src="{{cURL}}" alt="" />
+            <span class="column col-3">{{cName}}</span>
+            <span class="column col-3">{{cInfo}}</span>
+
+            {{#if cLink}}
+              <a href="/{{cLink}}" class="contact-link">See</a>
+            {{/if}}
+
+            {{#if ../loggedIn}}
+              {{#if ../isAdmin}}
+                <a href="#">Delete</a>
+                <a href="#">Edit</a>
+              {{/if}}
+            {{/if}}
+
+          </div>
+        {{/each}}
+      </div>
+
+      <div class="map-container column col-8 col-md-12">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17024.327598399!2d14.217848750000002!3d57.7667072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sse!4v1696619225932!5m2!1sen!2sse"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
+      </div>
+
+
+
+
+      {{#if ../loggedIn}}
+      {{#if ../isAdmin}}
+      <a href="#">Add new contact</a>
+      {{/if}}
+      {{/if}}
+    </section>
+
+  {{/if}}
+
+</main>

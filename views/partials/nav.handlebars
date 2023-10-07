@@ -1,0 +1,74 @@
+<!-- Header -->
+<header class="logged-in columns col-12" id="nav">
+  <!-- logo -->
+  <div class="logo-container logged-in column col-3 col-md-4">
+    <h1 class="logo logged-in column col-12 col-md-12">Yourtfolio</h1>
+  </div>
+
+  <!-- icon -->
+  <div class="bar-icon logged-in s-screen closed column col-1 col-md-1">
+    <i class="fa-solid fa-bars logged-in column col-1 col-md-1"></i>
+  </div>
+
+  <!-- Nav -->
+  <nav class="closed nav-menu logged-in column col-8 col-md-8">
+    <!-- x icon -->
+    <div class="column s-screen logged-in x-icon">
+      <i class="fa-solid fa-x logged-in"></i>
+    </div>
+
+    <!-- Pages -->
+    <div class="buttons-pages logged-in columns col-11 col-md-8">
+      <div class="columns col-10 col-md-12 buttons-container pages logged-in">
+
+        <div class="columns col-10 col-md-12 pages-container">
+          <div class="column col-2 col-md-12">
+            <a href="/" class="column col-12 col-md-12 button-page">Home</a>
+          </div>
+
+          <div class="column col-2 col-md-12">
+            <a
+              href="/about"
+              class="column col-12 col-md-12 button-page"
+            >About</a>
+          </div>
+
+          <div class="column col-2 col-md-12">
+            <a
+              href="/projects"
+              class="column col-12 col-md-12 button-page"
+            >Projects</a>
+          </div>
+
+          <div class="column col-2 col-md-12">
+            <a
+              href="/contact"
+              class="column col-12 col-md-12 button-page"
+            >Contact</a>
+          </div>
+
+        </div>
+      </div>
+      <!-- Login -->
+      <div class="columns col-2 col-md-12 buttons-container sign logged-in">
+
+        <div class="column col-12 sign-div">
+          {{#if loggedIn}}
+ <a
+            href="/logout"
+            class="column col-12 col-md-12 button logged-in sign-a"
+          >Logout</a>
+        </div>
+          {{else}}
+<a
+            href="/login"
+            class="column col-12 col-md-12 button logged-in sign-a"
+          >Login</a>
+        </div>
+          {{/if}}
+         
+
+      </div>
+    </div>
+  </nav>
+</header>

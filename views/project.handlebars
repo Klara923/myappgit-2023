@@ -1,0 +1,59 @@
+
+
+<main id="main">
+  <section class=" project-section columns col-12">
+  {{#each project}}
+   {{#if hasDatabaseError}}
+   <div class="colum col-12">Sorry, there was a problem with the database:<br />
+{{theError}}
+{{else}}
+<div class="info-container columns col-12">
+
+  <div class="title-container column col-12"><h1>{{pOverlayName}}</h1>
+  <div class="border-bottom column col-12"></div>
+  </div>
+  
+    <img class="project-img column col-4" src="/{{pURL}}" alt="" />
+
+    <div class="columns col-6 data-container">
+
+   
+
+    <div class="data-row-container columns col-12">
+    <h3 class="column col-6">Author: </h3><h3 class="one-data column col-6">{{pAuthor}}</h3>
+    <div class="border-bottom column col-12"></div>
+    </div>
+
+    <div class="data-row-container columns col-12">
+    <h3 class="column col-6">Date: </h3><h3 class="one-data column col-6">{{pDate}}</h3>
+    <div class="border-bottom column col-12"></div>
+    </div>
+
+
+    <div class="data-row-container columns col-12">
+    <h3 class="column col-6">{{#if pProgramming}}Languages: {{else}}Tools: {{/if}} </h3><h3 class="one-data column col-6">{{pTool}}</h3>
+    <div class="border-bottom column col-12"></div>
+    </div>
+
+    <div class="data-row-container columns col-12">
+    <h3 class="column col-6">Type: </h3><h3 class="one-data column col-6">{{pType}}</h3>
+    <div class="border-bottom column col-12"></div>
+    </div>
+
+
+    </div>
+
+<div class="column col-12">
+    {{pDesc}}
+    </div>
+
+  
+
+    </div>
+
+    
+
+    {{/if}}
+  {{/each}}
+  </section>
+</main>
