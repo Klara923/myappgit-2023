@@ -1,0 +1,96 @@
+<main id="main" class="column col-12 main-new-contact">
+  <div class="column col-12">
+    <h1 class="section-title">New contact</h1>
+    <div class="section-line columns col-12"></div>
+  </div>
+  {{#if loggedIn}}
+    {{#if isAdmin}}
+
+      <section class="new-contact-section columns col-12">
+
+        <form action="/contact/new" method="post">
+          <fieldset class="columns col-12">
+
+            <div class="columns col-6 col-md-12 new-contact-column">
+
+            
+
+
+
+              <div class="column col-12 input-container">
+                <label for="cURL">Contact icon</label>
+                <br />
+                <input type="text" name="cURL" id="cURL" />
+                <br />
+              </div>
+
+            
+
+
+               <div class="column col-12 input-container">
+                <label for="cInfo">Contact information: </label>
+                <br />
+                <input type="text" name="cInfo" id="cInfo" />
+                <br />
+              </div>
+
+             
+
+            </div>
+
+            <div class="columns col-6 col-md-12 new-contact-column">
+
+
+
+                   <div class="column col-12 input-container">
+                <label for="cName">Project name</label>
+                <br />
+                <input type="text" name="cName" id="cName" />
+                <br />
+              </div>
+
+             
+
+              <div class="column col-12 input-container">
+                <label for="cLink">Contact link: </label>
+                <br />
+                <input type="text" name="cLink" id="cLink" />
+                <br />
+              </div>
+
+
+             
+
+
+    
+
+             
+
+              </div>
+
+            </div>
+          </fieldset>
+
+          <div class="column col-12">
+            <input
+              type="submit"
+              value="Add contact"
+              class="new-contact-button"
+            />
+          </div>
+
+        </form>
+      </section>
+    {{else}}
+      <p>Sorry, you must be an administrator to add a new project!</p>
+    {{/if}}
+  {{else}}
+    <p>
+      Sorry, you must be logged in to add a new project!
+      <br />
+      Please go to the
+      <a href="/login">login</a>
+      page.
+    </p>
+  {{/if}}
+</main>

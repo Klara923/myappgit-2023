@@ -21,16 +21,28 @@
             <span class="column col-3">{{cName}}</span>
             <span class="column col-3">{{cInfo}}</span>
 
-            {{#if cLink}}
-              <a href="/{{cLink}}" class="contact-link">See</a>
-            {{/if}}
+
 
             {{#if ../loggedIn}}
-              {{#if ../isAdmin}}
-                <a href="#">Delete</a>
-                <a href="#">Edit</a>
-              {{/if}}
-            {{/if}}
+                    {{#if ../isAdmin}}
+
+    <div class="icons-container contact-icons columns col-2">
+      
+      <div class="column col-6">
+      <a href="#">
+     <img  src="img/pencil-edit.svg" alt="">
+      </a>
+      </div>
+
+      <div class="column col-6">
+      <a href="/contact/delete/{{cId}}">
+      <img  src="img/trash.svg" alt="">
+      </a>
+      </div>
+    </div>
+
+    {{/if}}
+    {{/if}}
 
           </div>
         {{/each}}
@@ -50,9 +62,16 @@
 
 
 
-      {{#if ../loggedIn}}
-      {{#if ../isAdmin}}
-      <a href="#">Add new contact</a>
+    
+     
+
+
+
+      {{#if loggedIn}}
+      {{#if isAdmin}}
+      <div class="new-contact-container column col-12">
+      <a class="new-contact-button" href="/contact/new">Add new contact</a>
+      </div>
       {{/if}}
       {{/if}}
     </section>

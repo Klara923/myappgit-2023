@@ -1,6 +1,6 @@
 const express = require("express"); // loads the express package
 const { engine } = require("express-handlebars"); // loads handlebars for Express
-const port = 1234; // defines the port
+const port = 1236; // defines the port
 const app = express(); // creates the Express application
 const sqlite3 = require("sqlite3");
 const bodyParser = require("body-parser");
@@ -11,7 +11,196 @@ const cookieParser = require("cookie-parser");
 const db = new sqlite3.Database("projects.db");
 
 db.run(
-  "CREATE TABLE contacts (cId INTEGER PRIMARY KEY, cURL TEXT NOT NULL, cInfo TEXT NOT NULL, cName TEXT NOT NULL, cLink TEXT)",
+  "CREATE TABLE skills (sId INTEGER PRIMARY KEY, sName, sURL, sURLAlt, sDesign, sProgramming)",
+  (error) => {
+    if (error) {
+      console.log("ERROR: ", error.message);
+    } else {
+      console.log("---> Table skills created");
+
+      const skills = [
+        {
+          sId: "1",
+          sName: "Photoshop",
+          sURL: "img/ps.svg",
+          sURLAlt: "Photoshop icon",
+          sDesign: "1",
+          sProgramming: "0",
+        },
+        {
+          sId: "2",
+          sName: "Illustrator",
+          sURL: "img/ai.svg",
+          sURLAlt: "Illustrator icon",
+          sDesign: "1",
+          sProgramming: "0",
+        },
+        {
+          sId: "3",
+          sName: "InDesign",
+          sURL: "img/id.svg",
+          sURLAlt: "InDesign icon",
+          sDesign: "1",
+          sProgramming: "0",
+        },
+        {
+          sId: "4",
+          sName: "Figma",
+          sURL: "img/figma.svg",
+          sURLAlt: "Figma icon",
+          sDesign: "1",
+          sProgramming: "0",
+        },
+        {
+          sId: "5",
+          sName: "HTML",
+          sURL: "img/html.svg",
+          sURLAlt: "Html icon",
+          sDesign: "0",
+          sProgramming: "1",
+        },
+        {
+          sId: "6",
+          sName: "CSS",
+          sURL: "img/css.svg",
+          sURLAlt: "Css icon",
+          sDesign: "0",
+          sProgramming: "1",
+        },
+        {
+          sId: "7",
+          sName: "JavaScript",
+          sURL: "img/js.svg",
+          sURLAlt: "JavaScript icon",
+          sDesign: "0",
+          sProgramming: "1",
+        },
+        {
+          sId: "8",
+          sName: "React",
+          sURL: "img/react.svg",
+          sURLAlt: "React icon",
+          sDesign: "0",
+          sProgramming: "1",
+        },
+      ];
+
+      skills.forEach((oneSkill) => {
+        db.run(
+          "INSERT INTO works (sId, sName, sURL, sURLAlt, sDesign, sProgramming) VALUES (?, ?, ?, ?, ?, ?)",
+          [
+            oneSkill.sId,
+            oneSkill.sName,
+            oneSkill.sURL,
+            oneSkill.sURLAlt,
+            oneSkill.sDesign,
+            oneSkill.sProgramming,
+          ],
+          (error) => {
+            if (error) {
+              console.log("Error: ", error.message);
+            } else {
+              console.log("Line added into the skills table");
+            }
+          }
+        );
+      });
+    }
+  }
+);
+
+db.run(
+  "CREATE TABLE works (wId INTEGER PRIMARY KEY, wDate, wTitle, wPlace, wCountry)",
+  (error) => {
+    if (error) {
+      console.log("ERROR: ", error.message);
+    } else {
+      console.log("---> Table works created");
+
+      const works = [
+        {
+          wId: "1",
+          wDate: "July-August 2020",
+          wTitle: "Warehouse employee",
+          wPlace: "Erum",
+          wCountry: "PL",
+        },
+        {
+          wId: "2",
+          wDate: "June-July 2021",
+          wTitle: "Sales assistant in the shoe store",
+          wPlace: "CCC",
+          wCountry: "PL",
+        },
+        {
+          wId: "3",
+          wDate: "June-July 2022",
+          wTitle: "Sales assistant in the art store",
+          wPlace: "Paper Concept",
+          wCountry: "PL",
+        },
+        {
+          wId: "4",
+          wDate: "July 2022",
+          wTitle: "Waitress in the ramen restaurant",
+          wPlace: "Meso Ramen",
+          wCountry: "PL",
+        },
+        {
+          wId: "5",
+          wDate: "2020-2023",
+          wTitle: "Creating custom clothes and reselling",
+          wPlace: "online",
+          wCountry: "PL",
+        },
+        {
+          wId: "6",
+          wDate: "2022",
+          wTitle: "Information service",
+          wPlace: "matches and concerts",
+          wCountry: "PL",
+        },
+        {
+          wId: "7",
+          wDate: "June 2023",
+          wTitle: "Waitress in the kebab restaurant",
+          wPlace: "Holy Kebab Visby",
+          wCountry: "SE",
+        },
+        {
+          wId: "8",
+          wDate: "July-August 2023",
+          wTitle: "Housekeeping in the hotel",
+          wPlace: "Abisko Mountain Lodge",
+          wCountry: "SE",
+        },
+      ];
+
+      works.forEach((oneWork) => {
+        db.run(
+          "INSERT INTO works (wId, wDate, wTitle, wPlace, wCountry) VALUES (?, ?, ?, ?, ?)",
+          [
+            oneWork.wId,
+            oneWork.wDate,
+            oneWork.wTitle,
+            oneWork.wPlace,
+            oneWork.wCountry,
+          ],
+          (error) => {
+            if (error) {
+              console.log("Error: ", error.message);
+            } else {
+              console.log("Line added into the works table");
+            }
+          }
+        );
+      });
+    }
+  }
+);
+
+db.run(
+  "CREATE TABLE contacts (cId INTEGER PRIMARY KEY, cURL TEXT, cInfo TEXT, cName TEXT, cLink TEXT)",
   (error) => {
     if (error) {
       console.log("ERROR: ", error.message);
@@ -60,7 +249,7 @@ db.run(
         db.run(
           "INSERT INTO contacts (cId, cURL, cInfo, cName, cLink) VALUES (?, ?, ?, ?, ?)",
           [
-            oneContact.pId,
+            oneContact.cId,
             oneContact.cURL,
             oneContact.cInfo,
             oneContact.cName,
@@ -397,19 +586,75 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  console.log("SESSION: ", req.session);
-  const model = {
-    loggedIn: req.session.loggedIn,
-    name: req.session.name,
-    isAdmin: req.session.isAdmin,
-    aboutMe: true,
-  };
-  res.render("about.handlebars", model);
-  // res.render("about.handlebars", {
-  //   title: "About page",
-  //   loggedIn: true,
-  //   aboutMe: true,
-  // });
+  db.all(
+    "SELECT * FROM works",
+
+    (error, theWorks) => {
+      if (error) {
+        const model = {
+          hasDatabaseError: true,
+          theError: error,
+          works: [],
+
+          title: "About me page",
+          loggedIn: req.session.loggedIn,
+          name: req.session.name,
+          isAdmin: req.session.isAdmin,
+        };
+
+        res.render("about.handlebars", model);
+      } else {
+        const model = {
+          hasDatabaseError: true,
+          theError: error,
+          works: theWorks,
+
+          title: "About me page",
+          loggedIn: req.session.loggedIn,
+          name: req.session.name,
+          isAdmin: req.session.isAdmin,
+        };
+
+        res.render("about.handlebars", model);
+      }
+    }
+  );
+});
+
+app.get("/about", (req, res) => {
+  db.all(
+    "SELECT * FROM skills",
+
+    (error, theSkills) => {
+      if (error) {
+        const model = {
+          hasDatabaseError: true,
+          theError: error,
+          skills: [],
+
+          title: "About me page",
+          loggedIn: req.session.loggedIn,
+          name: req.session.name,
+          isAdmin: req.session.isAdmin,
+        };
+
+        res.render("about.handlebars", model);
+      } else {
+        const model = {
+          hasDatabaseError: true,
+          theError: error,
+          skills: theSkills,
+
+          title: "About me page",
+          loggedIn: req.session.loggedIn,
+          name: req.session.name,
+          isAdmin: req.session.isAdmin,
+        };
+
+        res.render("about.handlebars", model);
+      }
+    }
+  );
 });
 
 app.get("/projects", (req, res) => {
@@ -667,6 +912,75 @@ app.get("/contact", (req, res) => {
       res.render("contact.handlebars", model);
     }
   });
+});
+
+// sends the form for a new contact
+
+app.get("/contact/new", (req, res) => {
+  if (req.session.loggedIn == true && req.session.isAdmin == true) {
+    const model = {
+      loggedIn: req.session.loggedIn,
+      name: req.session.name,
+      isAdmin: req.session.isAdmin,
+    };
+    res.render("newContact.handlebars", model);
+  } else {
+    res.redirect("/login");
+  }
+});
+
+// creates a new contact
+
+app.post("/contact/new", (req, res) => {
+  const newC = [req.body.cURL, req.body.cInfo, req.body.cName, req.body.cLink];
+  if (req.session.loggedIn == true && req.session.isAdmin == true) {
+    db.run(
+      "INSERT INTO contacts (cURL, cInfo, cName, cLink) VALUES (?, ?, ?, ?)",
+      newC,
+      (error) => {
+        if (error) {
+          console.log("ERROR: ", error);
+        } else {
+          console.log("Line added into the contacts table");
+        }
+        res.redirect("/contact");
+      }
+    );
+  } else {
+    res.redirect("/login");
+  }
+});
+
+// DELETE CONTACT
+
+app.get("/contact/delete/:id", (req, res) => {
+  const id = req.params.id;
+
+  if (req.session.loggedIn == true && req.session.isAdmin == true) {
+    db.run("DELETE FROM contacts WHERE cId=?", [id], (error, theContacts) => {
+      if (error) {
+        const model = {
+          hasDatabaseError: true,
+          theError: error,
+          loggedIn: req.session.loggedIn,
+          name: req.session.name,
+          isAdmin: req.session.isAdmin,
+        };
+        res.render("home.handlebars", model);
+      } else {
+        const model = {
+          hasDatabaseError: false,
+          theError: "",
+          loggedIn: req.session.loggedIn,
+          name: req.session.name,
+          isAdmin: req.session.isAdmin,
+        };
+        res.render("home.handlebars", model);
+      }
+    });
+  } else {
+    res.redirect("/login");
+  }
 });
 
 app.listen(port, () => {

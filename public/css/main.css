@@ -258,6 +258,63 @@ footer {
   text-align: center;
 }
 
+/* Home page */
+
+.cats-container-top,
+.cats-container-bottom {
+  justify-content: space-between;
+  align-items: center;
+  z-index: -1;
+}
+
+.cats-container-top img,
+.cats-container-bottom img {
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+#small-cat {
+  width: 25%;
+}
+
+.welcome-container {
+  text-align: center;
+  margin-top: -6rem;
+}
+
+.welcome-container h1 {
+  font-family: "Syne", sans-serif;
+  color: var(--clr-purple);
+  font-size: 6em;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-container h6 {
+  font-weight: 100;
+  font-size: 1em;
+}
+
+.welcome-container h5 {
+  font-family: "Syne", sans-serif;
+  color: var(--clr-light-purple);
+  font-weight: 700;
+  font-size: 4em;
+}
+
+.welcome-container span {
+  color: var(--clr-light-purple);
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.welcome-container h4 {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
 /* Form and inputs on login page */
 
 .form-container {
@@ -473,8 +530,12 @@ input:invalid {
 }
 
 .contact-section {
-  padding: 2rem 5rem;
+  padding: 2rem 2rem;
   justify-content: space-between;
+}
+
+.contact-icons {
+  margin-left: 4rem;
 }
 
 .map {
@@ -486,6 +547,41 @@ input:invalid {
   color: red;
 }
 
+.new-contact-container {
+  margin-top: 2rem;
+}
+
+.new-contact-button {
+  text-transform: uppercase;
+  font-weight: 800;
+  background: var(--clr-white) !important;
+  color: var(--clr-black) !important;
+  padding: 0.5rem;
+}
+
+/* Projects page */
+
+.icons-container img {
+  width: 100%;
+}
+
+.trash-icon {
+  width: 85% !important;
+}
+
+.add-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.new-button {
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  background: var(--clr-white) !important;
+  color: var(--clr-black) !important;
+  padding: 0.5rem;
+}
 /* New and edit project */
 
 .new-project-button,
@@ -594,5 +690,9 @@ input:invalid {
     background: none;
     border: none;
     padding: 0.3rem 1.4rem;
+  }
+
+  iframe {
+    margin-top: 3rem;
   }
 }

@@ -1,26 +1,18 @@
 <!-- Main -->
+
+   <link rel="stylesheet" type="text/css" href="/css/my-styles-05.css">
 <main id="main column col-12">
 
 
-  {{>cv}}
+  {{!-- {{>cv}} --}}
 
-  {{! <div id="cv">
-    <div class="container">
-      <!-- Line with stars -->
-      <div class="line-with-stars-container columns col-oneline">
-        <img
-          src="/img/star-white.svg"
-          alt="Star icon"
-          class="star-svg column col-12"
-        />
-        <div class="line column">
-          <p>cirriculum vitae 2023</p>
-        </div>
-        <img src="/img/star-white.svg" alt="Star icon" class="column col-12" />
-      </div>
+
+  <div id="cv">
+    <div class="container cv-container">
+    
 
       <!-- Header/Hero section -->
-      <header class="header-section columns col-md-12">
+      <section class="header-section columns col-md-12">
         <div class="photo-container column col-3 col-md-12">
           <img
             src="img/profile-picture-png-compressed.png"
@@ -50,35 +42,12 @@
             </p>
           </div>
         </div>
-      </header>
-
-      <!-- Contact section -->
-      <section class="contact-section container">
-        <ul class="contact-list columns col-oneline col-12">
-          <li class="columns col-oneline col-12">
-            <i class="fa fa-envelope column col-2" style="font-size: 24px"></i>
-            <span class="column col-10">swkl22er@student.ju.se</span>
-          </li>
-
-          <li class="columns col-oneline col-12">
-            <i class="fa fa-phone column col-2" style="font-size: 24px"></i>
-            <span class="column col-10">0760578464</span>
-          </li>
-
-          <li class="columns col-oneline col-12">
-            <i
-              class="fa fa-map-marker column col-2"
-              style="font-size: 24px"
-            ></i>
-            <span class="column col-10"
-              >Tallörtsbacken 27 lgh 1105, 554 58 Jönköping</span
-            >
-          </li>
-        </ul>
       </section>
 
+
+
       <!-- Main section -->
-      <main class="columns col-12 col-md-12">
+      <main class="main-section columns col-12 col-md-12">
         <!-- Left column -->
         <div class="left-column column col-4 col-md-12">
           <div class="left-column-container columns">
@@ -123,31 +92,29 @@
               <p class="column col-12">design</p>
               <div class="design-skills columns col-12">
                 <div class="columns col-oneline col-12">
-                  <img
-                    src="img/ps.svg"
-                    alt="Photoshop icon"
+
+
+{{#each skills}}
+
+  {{!-- <img
+                    src="img/{{sURL}}.svg"
+                    alt="{{sURLAlt}}"
                     class="column col-6"
-                  />
-                  <img
-                    src="img/ai.svg"
-                    alt="Illustrator icon"
-                    class="column col-6"
-                  />
+                  /> --}}
+                  <p>{{sName}}</p>
+
+{{/each}}
+                
+
+
+
                 </div>
 
-                <div class="columns col-oneline col-12">
-                  <img
-                    src="img/id.svg"
-                    alt="Indesign icon"
-                    class="column col-6"
-                  />
-                  <img
-                    src="img/figma.svg"
-                    alt="Figma icon"
-                    class="column col-6"
-                  />
-                </div>
+
               </div>
+
+
+
               <p class="column col-12">programming</p>
               <div class="prog-skills columns col-12">
                 <div class="columns col-oneline col-12">
@@ -177,7 +144,7 @@
         </div>
 
         <!-- Right column -->
-        <div class="right-column column col-8 col-md-12">
+        <div class="right-column column col-7 col-md-12">
           <div class="columns">
             <div class="edu column col-12">
               <h2>Education</h2>
@@ -200,36 +167,13 @@
             <div class="work-exp column col-12">
               <h2>Work Experience</h2>
               <div class="border-bottom"></div>
+               
               <ul>
-                <li><span>July-August 2020</span> Warehouse employee, Erum</li>
-                <li>
-                  <span>June-July 2021</span> Sales assistant in the shoe store,
-                  CCC
-                </li>
-                <li>
-                  <span>June-July 2022</span> Sales assistant in the art store,
-                  Paper Concept
-                </li>
-                <li>
-                  <span>July 2022</span> Waitress in the ramen restaurant, Meso
-                  Ramen
-                </li>
-                <li>
-                  <span>2020-2023</span> Creating custom clothes and reselling,
-                  ecommerce
-                </li>
-                <li>
-                  <span>2022</span> Information service at matches and concerts
-                </li>
-                <li>
-                  <span>June 2023</span> Waitress kebab restaurant, Holy Kebab
-                  Visby
-                </li>
-                <li>
-                  <span>July-August 2023</span> Housekeeping in the hotel,
-                  Abisko Mountain Lodge
-                </li>
+               {{#each works}}
+                <li><span>{{wDate}}</span> {{wTitle}}, {{wPlace}}, {{wCountry}}</li>
+           {{/each}}
               </ul>
+              
             </div>
             <div class="oth-exp column col-12">
               <h2>Other Experience</h2>
@@ -240,44 +184,10 @@
                 <li>Sailing courses</li>
                 <li>Graphic Agent in JU association - Justice</li>
               </ul>
+              <div class="border-bottom"></div>
             </div>
           </div>
         </div>
       </main>
 
-      <!-- Footer section -->
-      <footer>
-        <ul class="social-media-list columns col-oneline col-12">
-          <!-- Social media icons -->
-
-          <li class="columns">
-            <img
-              src="img/in.svg"
-              alt="Linkedin logo"
-              class="in-svg column col-12 col-md-12"
-            />
-          </li>
-          <li class="columns">
-            <img
-              src="img/gh.svg"
-              alt="Github logo"
-              class="column col-12 col-md-12"
-            />
-          </li>
-        </ul>
-      </footer>
-
-      <!-- Line with stars -->
-      <div class="line-with-stars-container-bottom columns col-oneline">
-        <img
-          src="/img/star-white.svg"
-          alt="Star icon"
-          class="star-svg column col-8"
-        />
-        <div class="line-bottom column">
-          <p>cirriculum vitae 2023</p>
-        </div>
-        <img src="/img/star-white.svg" alt="Star icon" class="column col-8" />
-      </div>
-    </div> }}
 </main>

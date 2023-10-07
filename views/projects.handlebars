@@ -18,10 +18,37 @@
     <div class="columns col-12 col-md-12 programming-container">
       {{#each projects}}
         {{#if pProgramming}}
+        
           <div
             class="thumbnail-container column col-3"
             id="thumbnail-container"
           >
+
+{{#if ../loggedIn}}
+                    {{#if ../isAdmin}}
+
+    <div class="icons-container columns col-3">
+      
+      <div class="column col-6">
+      <a href="/projects/edit/{{pId}}">
+     <img  src="img/pencil-edit.svg" alt="">
+      </a>
+      </div>
+
+      <div class="column col-6">
+      <a href="/projects/delete/{{pId}}">
+      <img  src="img/trash.svg" alt="">
+      </a>
+      </div>
+    </div>
+
+    {{/if}}
+    {{/if}}
+
+
+
+
+
           <a href="/projects/{{pId}}">
             <div class="column col-12 col-md-12 thumbnail-image-container">
               <img class="column col-12 col-md-12" src="{{pURL}}" alt="" />
@@ -40,14 +67,7 @@
                   >{{pDate}}</span></span>
 
 
-                    {{#if ../isAdmin}}
 
-    <div class="column col-12">
-      <a href="/projects/edit/{{pId}}">Edit</a>
-      <a href="/projects/delete/{{pId}}">Delete</a>
-    </div>
-
-    {{/if}}
                  
               </div>
             </div>
@@ -72,6 +92,30 @@
             class="thumbnail-container column col-3"
             id="thumbnail-container"
           >
+
+{{#if ../loggedIn}}
+                    {{#if ../isAdmin}}
+
+    <div class="icons-container columns col-3">
+      
+      <div class="column col-6">
+      <a href="/projects/edit/{{pId}}">
+     <img  src="img/pencil-edit.svg" alt="">
+      </a>
+      </div>
+
+      <div class="column col-6">
+      <a href="/projects/delete/{{pId}}">
+      <img  src="img/trash.svg" alt="">
+      </a>
+      </div>
+    </div>
+
+    {{/if}}
+    {{/if}}
+
+
+
           <a href="/projects/{{pId}}">
             <div class="column col-12 thumbnail-image-container">
               <img class="column col-12" src="{{pURL}}" alt="" />
@@ -89,16 +133,7 @@
                     class="p-date"
                   >{{pDate}}</span></span>
 
-                   {{#if loggedIn}}
-                    {{#if ../isAdmin}}
-
-    <div class="column col-12">
-      <a href="/projects/edit/{{pId}}">Edit</a>
-      <a href="/projects/delete/{{pId}}">Delete</a>
-    </div>
-
-    {{/if}}
-    {{/if}}
+    
                   
                 
               </div>
@@ -111,7 +146,9 @@
 
       {{#if loggedIn}}
       {{#if isAdmin}}
-      <a href="/projects/new">Add new project!</a>
+      <div class="add-button-container column col-12">
+      <a class="new-button" href="/projects/new">Add a new project!</a>
+      </div>
       {{/if}}
       {{/if}}
 
