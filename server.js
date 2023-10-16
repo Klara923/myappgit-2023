@@ -7,100 +7,75 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const connectSqlite3 = require("connect-sqlite3");
 const cookieParser = require("cookie-parser");
+const bcrypt = require("bcrypt");
 
 const db = new sqlite3.Database("projects.db");
 
 db.run(
-  "CREATE TABLE skills (sId INTEGER PRIMARY KEY, sName, sURL, sURLAlt, sDesign, sProgramming)",
+  "CREATE TABLE users (uId INTEGER PRIMARY KEY, uName TEXT NOT NULL, uUserName TEXT NOT NULL, uPassword TEXT NOT NULL, uType TEXT NOT NULL)",
   (error) => {
     if (error) {
       console.log("ERROR: ", error.message);
     } else {
-      console.log("---> Table skills created");
+      console.log("---> Table users created");
 
-      const skills = [
+      const users = [
         {
-          sId: "1",
-          sName: "Photoshop",
-          sURL: "img/ps.svg",
-          sURLAlt: "Photoshop icon",
-          sDesign: "1",
-          sProgramming: "0",
+          uId: "0",
+          uName: "Klara",
+          uUserName: "Klara1",
+          uPassword:
+            "$2b$12$qs8kkR3OzDb6x.ZOPCtD..lgaQkhi.ZvLNmQN32LfFnyS0mUXIy96",
+          uType: "Admin",
         },
         {
-          sId: "2",
-          sName: "Illustrator",
-          sURL: "img/ai.svg",
-          sURLAlt: "Illustrator icon",
-          sDesign: "1",
-          sProgramming: "0",
+          uId: "1",
+          uName: "Lia",
+          uUserName: "Lia1",
+          uPassword:
+            "$2b$12$kLdcObpPUxpCZYOaRbZPH.KodynKXq54rfXA5Uy7hMo0AIlseQqpC",
+          uType: "User",
         },
         {
-          sId: "3",
-          sName: "InDesign",
-          sURL: "img/id.svg",
-          sURLAlt: "InDesign icon",
-          sDesign: "1",
-          sProgramming: "0",
+          uId: "2",
+          uName: "Eli",
+          uUserName: "Eli1",
+          uPassword:
+            "$2b$12$pHXt5SvmhAow58BDnHdup.2xuvYY4A/fpxJpCdNDBvP9DkEmb0vE6",
+          uType: "User",
         },
         {
-          sId: "4",
-          sName: "Figma",
-          sURL: "img/figma.svg",
-          sURLAlt: "Figma icon",
-          sDesign: "1",
-          sProgramming: "0",
+          uId: "3",
+          uName: "Jerome",
+          uUserName: "Jerome1",
+          uPassword:
+            "$2b$12$p9Er2w6Kw2XxjR38KwpXJuFpY9Ogz3Npsa6L5OuYHnJlrAwpfaPgm",
+          uType: "User",
         },
         {
-          sId: "5",
-          sName: "HTML",
-          sURL: "img/html.svg",
-          sURLAlt: "Html icon",
-          sDesign: "0",
-          sProgramming: "1",
-        },
-        {
-          sId: "6",
-          sName: "CSS",
-          sURL: "img/css.svg",
-          sURLAlt: "Css icon",
-          sDesign: "0",
-          sProgramming: "1",
-        },
-        {
-          sId: "7",
-          sName: "JavaScript",
-          sURL: "img/js.svg",
-          sURLAlt: "JavaScript icon",
-          sDesign: "0",
-          sProgramming: "1",
-        },
-        {
-          sId: "8",
-          sName: "React",
-          sURL: "img/react.svg",
-          sURLAlt: "React icon",
-          sDesign: "0",
-          sProgramming: "1",
+          uId: "4",
+          uName: "Laura",
+          uUserName: "Laura1",
+          uPassword:
+            "$2b$12$bLOuOyzCh0w5tp32sstI0OvN2uTukdDKrgCFL6HVNk2NbX1QQ7foq",
+          uType: "User",
         },
       ];
-
-      skills.forEach((oneSkill) => {
+      users.forEach((oneUser) => {
         db.run(
-          "INSERT INTO works (sId, sName, sURL, sURLAlt, sDesign, sProgramming) VALUES (?, ?, ?, ?, ?, ?)",
+          "INSERT INTO users (uId, uName, uUserName, uPassword, uType) VALUES (?, ?, ?, ?, ?)",
           [
-            oneSkill.sId,
-            oneSkill.sName,
-            oneSkill.sURL,
-            oneSkill.sURLAlt,
-            oneSkill.sDesign,
-            oneSkill.sProgramming,
+            oneUser.uId,
+            oneUser.uName,
+            oneUser.uUserName,
+            oneUser.uPassword,
+            oneUser.uType,
           ],
           (error) => {
             if (error) {
               console.log("Error: ", error.message);
             } else {
-              console.log("Line added into the skills table");
+              console.log("Line added into the users table");
             }
           }
         );
@@ -110,7 +85,69 @@ db.run(
 );
 
 db.run(
-  "CREATE TABLE works (wId INTEGER PRIMARY KEY, wDate, wTitle, wPlace, wCountry)",
+  "CREATE TABLE images (iId INTEGER PRIMARY KEY, iURL TEXT NOT NULL, iURLAlt TEXT NOT NULL, isTop TEXT NOT NULL, isBottom TEXT NOT NULL)",
+  (error) => {
+    if (error) {
+      console.log("ERROR: ", error.message);
+    } else {
+      console.log("---> Table works created");
+
+      const images = [
+        {
+          iId: "0",
+          iURL: "img/cat2.png",
+          iURLAlt: "cat image",
+          isTop: "1",
+          isBottom: "0",
+        },
+        {
+          iId: "1",
+          iURL: "img/cat1.png",
+          iURLAlt: "cat image",
+          isTop: "1",
+          isBottom: "0",
+        },
+        {
+          iId: "2",
+          iURL: "img/cat3.png",
+          iURLAlt: "cat image",
+          isTop: "0",
+          isBottom: "1",
+        },
+        {
+          iId: "3",
+          iURL: "img/cat4.png",
+          iURLAlt: "cat image",
+          isTop: "0",
+          isBottom: "1",
+        },
+      ];
+
+      images.forEach((oneImg) => {
+        db.run(
+          "INSERT INTO images (iId, iURL, iURLAlt, isTop, isBottom) VALUES (?, ?, ?, ?, ?)",
+          [
+            oneImg.iId,
+            oneImg.iURL,
+            oneImg.iURLAlt,
+            oneImg.isTop,
+            oneImg.isBottom,
+          ],
+          (error) => {
+            if (error) {
+              console.log("Error: ", error.message);
+            } else {
+              console.log("Line added into the images table");
+            }
+          }
+        );
+      });
+    }
+  }
+);
+
+db.run(
+  "CREATE TABLE works (wId INTEGER PRIMARY KEY, wDate TEXT, wTitle TEXT, wPlace TEXT, wCountry TEXT)",
   (error) => {
     if (error) {
       console.log("ERROR: ", error.message);
@@ -209,35 +246,35 @@ db.run(
 
       const contacts = [
         {
-          cId: "1",
+          cId: "0",
           cURL: "img/mail.svg",
           cInfo: "klara.swiecicka@hotmail.com",
           cName: "mail",
-          cLink: "",
+          cLink: null,
         },
         {
-          cId: "2",
+          cId: "1",
           cURL: "img/phone.svg",
           cInfo: "07 07 07 07 07",
           cName: "phone",
-          cLink: "",
+          cLink: null,
         },
         {
-          cId: "3",
+          cId: "2",
           cURL: "img/pin.svg",
           cInfo: "Randomstreet 13, 123-45 Jönköping",
           cName: "address",
-          cLink: "",
+          cLink: null,
         },
         {
-          cId: "4",
+          cId: "3",
           cURL: "img/in-white.svg",
           cInfo: "Klara Swiecicka",
           cName: "LinkedIn",
           cLink: "www.linkedin.com/in/klara-swiecicka-824262275",
         },
         {
-          cId: "5",
+          cId: "4",
           cURL: "img/gh-white.svg",
           cInfo: "Klara923",
           cName: "GitHub",
@@ -538,22 +575,34 @@ app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
-  if (username == "jerome" && password == "1234") {
-    console.log(`${username} is logged in`);
-    req.session.isAdmin = true;
-    req.session.loggedIn = true;
-    req.session.name = "Jerome";
-    res.redirect("/");
-  } else {
-    console.log("Wrong username/password");
-    req.session.isAdmin = false;
-    req.session.loggedIn = false;
-    req.session.name = "";
-    res.redirect("/login");
-  }
-
   console.log("Username: ", username);
   console.log("Password: ", password);
+
+  db.get("SELECT * FROM users WHERE uUserName=?", [username], (err, user) => {
+    if (err) {
+      console.log("Wrong username: ", err);
+      res.redirect("/login");
+    } else {
+      console.log("User: ", user);
+      bcrypt.compare(password, user.uPassword, (err, result) => {
+        if (err) {
+          console.log("Error in comparing encryption: ", err);
+          res.redirect("/login");
+        } else if (result == true) {
+          console.log("User is logged in!");
+          req.session.isAdmin = user.uType == "Admin";
+          req.session.isLoggedIn = true;
+          req.session.loggedIn = true;
+          req.session.name = user.uUname;
+
+          res.redirect("/");
+        } else {
+          console.log("User is NOT logged in");
+          res.redirect("/login");
+        }
+      });
+    }
+  });
 });
 
 app.get("/login", (req, res) => {
@@ -576,85 +625,106 @@ app.get("/logout", (req, res) => {
 
 app.get("/", (req, res) => {
   console.log("SESSION: ", req.session);
-  const model = {
-    loggedIn: req.session.loggedIn,
-    name: req.session.name,
-    isAdmin: req.session.isAdmin,
-  };
+
+  saltRounds = 12;
+  bcrypt.hash("0914", saltRounds, (err, hash) => {
+    if (err) {
+      console.log("Error encrypting the password: ", err);
+    } else {
+      console.log("Hashed password (GENERATE only ONCE): ", hash);
+    }
+  });
+  db.all("SELECT * FROM images", (error, theImages) => {
+    if (error) {
+      const model = {
+        hasDatabaseError: true,
+        theError: error,
+        images: [],
+
+        title: "Home page",
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+      };
+      res.render("home.handlebars", model);
+    } else {
+      const model = {
+        hasDatabaseError: false,
+        theError: "",
+        images: theImages,
+
+        title: "Home page",
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+      };
+      res.render("home.handlebars", model);
+    }
+  });
+
   // res.render("home.handlebars", { title: "Home page", loggedIn: true });
-  res.render("home.handlebars", model);
 });
 
 app.get("/about", (req, res) => {
-  db.all(
-    "SELECT * FROM works",
+  db.all("SELECT * FROM works ", (error, theWorks) => {
+    if (error) {
+      const model = {
+        hasDatabaseError: true,
+        theError: error,
+        works: [],
 
-    (error, theWorks) => {
-      if (error) {
-        const model = {
-          hasDatabaseError: true,
-          theError: error,
-          works: [],
+        title: "About me page",
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+      };
 
-          title: "About me page",
-          loggedIn: req.session.loggedIn,
-          name: req.session.name,
-          isAdmin: req.session.isAdmin,
-        };
+      res.render("about.handlebars", model);
+    } else {
+      const model = {
+        hasDatabaseError: false,
+        theError: "",
+        works: theWorks,
 
-        res.render("about.handlebars", model);
-      } else {
-        const model = {
-          hasDatabaseError: true,
-          theError: error,
-          works: theWorks,
+        title: "About me page",
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+      };
 
-          title: "About me page",
-          loggedIn: req.session.loggedIn,
-          name: req.session.name,
-          isAdmin: req.session.isAdmin,
-        };
-
-        res.render("about.handlebars", model);
-      }
+      res.render("about.handlebars", model);
     }
-  );
+  });
 });
 
-app.get("/about", (req, res) => {
-  db.all(
-    "SELECT * FROM skills",
+app.get("/users", (req, res) => {
+  db.all("SELECT * FROM users", (error, theUsers) => {
+    if (error) {
+      const model = {
+        hasDatabaseError: true,
+        theError: error,
+        users: [],
+        title: "Users page",
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+      };
 
-    (error, theSkills) => {
-      if (error) {
-        const model = {
-          hasDatabaseError: true,
-          theError: error,
-          skills: [],
+      res.render("users.handlebars", model);
+    } else {
+      const model = {
+        hasDatabaseError: false,
+        theError: "",
+        users: theUsers,
+        title: "Users page",
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+      };
 
-          title: "About me page",
-          loggedIn: req.session.loggedIn,
-          name: req.session.name,
-          isAdmin: req.session.isAdmin,
-        };
-
-        res.render("about.handlebars", model);
-      } else {
-        const model = {
-          hasDatabaseError: true,
-          theError: error,
-          skills: theSkills,
-
-          title: "About me page",
-          loggedIn: req.session.loggedIn,
-          name: req.session.name,
-          isAdmin: req.session.isAdmin,
-        };
-
-        res.render("about.handlebars", model);
-      }
+      res.render("users.handlebars", model);
     }
-  );
+  });
 });
 
 app.get("/projects", (req, res) => {
@@ -815,7 +885,6 @@ app.get("/projects/edit/:id", (req, res) => {
 app.post("/projects/edit/:id", (req, res) => {
   const id = req.params.id;
   const editedP = [
-    req.body.pId,
     req.body.pURL,
     req.body.pName,
     req.body.pOverlayName,
@@ -830,7 +899,7 @@ app.post("/projects/edit/:id", (req, res) => {
   ];
   if (req.session.loggedIn == true && req.session.isAdmin == true) {
     db.run(
-      "UPDATE projects SET pURL=?, pName=?, pOverlayName=?, pAuthor=?, pDate=?, pDesc=?, pProgramming=?, pDesign=?, pTool=?, pType=?, pId=?",
+      "UPDATE projects SET pURL=?, pName=?, pOverlayName=?, pAuthor=?, pDate=?, pDesc=?, pProgramming=?, pDesign=?, pTool=?, pType=? WHERE pId=?",
       editedP,
       (error) => {
         if (error) {
@@ -978,6 +1047,65 @@ app.get("/contact/delete/:id", (req, res) => {
         res.render("home.handlebars", model);
       }
     });
+  } else {
+    res.redirect("/login");
+  }
+});
+
+// send the form to modify a project
+
+app.get("/contact/edit/:id", (req, res) => {
+  const id = req.params.id;
+
+  db.get("SELECT * FROM contacts WHERE cId=?", [id], (error, theContact) => {
+    if (error) {
+      console.log("ERROR: ", error);
+      const model = {
+        hasDatabaseError: true,
+        theError: error,
+        contact: {},
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+      };
+      res.render("editContact.handlebars", model);
+    } else {
+      const model = {
+        hasDatabaseError: false,
+        theError: "",
+        contact: theContact,
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+      };
+      res.render("editContact.handlebars", model);
+    }
+  });
+});
+
+app.post("/contact/edit/:id", (req, res) => {
+  const id = req.params.id;
+  const editedC = [
+    req.body.cURL,
+    req.body.cInfo,
+    req.body.cName,
+    req.body,
+    req.body.cLink,
+    id,
+  ];
+  if (req.session.loggedIn == true && req.session.isAdmin == true) {
+    db.run(
+      "UPDATE contacts SET cURL=?, cInfo=?, cName=?, cLink=? WHERE cId=?",
+      editedC,
+      (error) => {
+        if (error) {
+          console.log("ERROR: ", error);
+        } else {
+          console.log("Contact edited!");
+        }
+        res.redirect("/contact");
+      }
+    );
   } else {
     res.redirect("/login");
   }

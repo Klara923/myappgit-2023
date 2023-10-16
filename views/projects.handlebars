@@ -20,22 +20,22 @@
         {{#if pProgramming}}
         
           <div
-            class="thumbnail-container column col-3"
+            class="thumbnail-container column col-3 col-md-8"
             id="thumbnail-container"
           >
 
 {{#if ../loggedIn}}
                     {{#if ../isAdmin}}
 
-    <div class="icons-container columns col-3">
+    <div class="icons-container columns col-3 col-md-4">
       
-      <div class="column col-6">
+      <div class="column col-6 ">
       <a href="/projects/edit/{{pId}}">
      <img  src="img/pencil-edit.svg" alt="">
       </a>
       </div>
 
-      <div class="column col-6">
+      <div class="column col-6 ">
       <a href="/projects/delete/{{pId}}">
       <img  src="img/trash.svg" alt="">
       </a>
@@ -89,14 +89,14 @@
         {{#if pDesign}}
 
           <div
-            class="thumbnail-container column col-3"
+            class="thumbnail-container column col-3 col-md-8"
             id="thumbnail-container"
           >
 
 {{#if ../loggedIn}}
                     {{#if ../isAdmin}}
 
-    <div class="icons-container columns col-3">
+    <div class="icons-container columns col-3 col-md-4">
       
       <div class="column col-6">
       <a href="/projects/edit/{{pId}}">

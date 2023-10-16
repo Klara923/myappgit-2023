@@ -94,16 +94,31 @@
                 <div class="columns col-oneline col-12">
 
 
-{{#each skills}}
-
-  {{!-- <img
-                    src="img/{{sURL}}.svg"
-                    alt="{{sURLAlt}}"
+                  <img
+                    src="img/ps.svg"
+                    alt="Photoshop icon"
                     class="column col-6"
-                  /> --}}
-                  <p>{{sName}}</p>
+                  />
+                  <img
+                    src="img/ai.svg"
+                    alt="Illustrator icon"
+                    class="column col-6"
+                  />
+                </div>
 
-{{/each}}
+                <div class="columns col-oneline col-12">
+                  <img
+                    src="img/id.svg"
+                    alt="Indesign icon"
+                    class="column col-6"
+                  />
+                  <img
+                    src="img/figma.svg"
+                    alt="Figma icon"
+                    class="column col-6"
+                  />
+              
+
                 
 
 
@@ -169,9 +184,16 @@
               <div class="border-bottom"></div>
                
               <ul>
-               {{#each works}}
+                
+                
+               
+               
+                {{#each works}}
                 <li><span>{{wDate}}</span> {{wTitle}}, {{wPlace}}, {{wCountry}}</li>
+                  
            {{/each}}
+        
+          
               </ul>
               
             </div>

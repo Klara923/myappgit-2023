@@ -354,10 +354,10 @@ form {
 input:valid {
   border: 1px solid var(--clr-white);
 }
-
+/* 
 input:invalid {
   border: 1px solid red;
-}
+} */
 
 .no-active {
   display: none;
@@ -585,7 +585,9 @@ input:invalid {
 /* New and edit project */
 
 .new-project-button,
-.edit-project-button {
+.edit-project-button,
+.new-contact-button,
+.edit-contact-button {
   margin-top: 2rem;
   text-transform: uppercase;
   font-weight: 800;
@@ -594,14 +596,20 @@ input:invalid {
 }
 
 .new-project-section,
-.edit-project-section {
+.edit-project-section,
+.new-contact-section,
+.edit-contact-section {
   padding: 2rem 2rem;
   justify-content: space-between;
 }
 .main-new-project input,
 .main-new-project textarea,
 .main-edit-project input,
-.main-edit-project textarea {
+.main-edit-project textarea,
+.main-new-contact input,
+.main-new-contact textarea,
+.main-edit-contact input,
+.main-edit-contact textarea {
   border: 0.5px solid var(--clr-white);
   background: none;
   color: var(--clr-white);
@@ -619,12 +627,16 @@ input:invalid {
 }
 
 .main-new-project fieldset,
-.main-edit-project fieldset {
+.main-edit-project fieldset,
+.main-new-contact fieldset,
+.main-edit-contact fieldset {
   gap: 1rem;
 }
 
 .new-project-column,
-.edit-project-column {
+.edit-project-column,
+.new-contact-column,
+.edit-contact-column {
   gap: 0.5rem;
 }
 

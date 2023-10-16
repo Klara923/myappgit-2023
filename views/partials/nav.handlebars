@@ -47,6 +47,17 @@
             >Contact</a>
           </div>
 
+          {{#if loggedIn}}
+          {{#if isAdmin}}
+          <div class="column col-2 col-md-12">
+            <a
+              href="/users"
+              class="column col-12 col-md-12 button-page"
+            >Users</a>
+          </div>
+          {{/if}}
+          {{/if}}
+
         </div>
       </div>
       <!-- Login -->

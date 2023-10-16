@@ -1,0 +1,65 @@
+<!-- Main -->
+
+<main id="main" class="column col-12 main-users">
+
+  <div class="column col-12">
+    <h1 class="section-title">Contact</h1>
+    <div class="section-line columns col-12"></div>
+  </div>
+
+  {{#if hasDatabaseError}}
+    <div>Sorry, there was a problem with the database:<br />
+      {{theError}}
+    </div>
+  {{else}}
+    <section class="contact-section columns col-12">
+
+      <div class="contacts columns col-4 col-md-12">
+        {{#each users}}
+          <div class="contact-container columns col-12">
+           <h1>{{uName}}</h1>
+           <h1>{{uUserName}}</h1>
+           <h1>{{uPassword}}</h1>
+
+
+
+
+    <div class="icons-container contact-icons columns col-2">
+      
+      <div class="column col-6">
+      <a href="/users/edit/{{uId}}">
+     <img  src="img/pencil-edit.svg" alt="">
+      </a>
+      </div>
+
+      <div class="column col-6">
+      <a href="/users/delete/{{cId}}">
+      <img  src="img/trash.svg" alt="">
+      </a>
+      </div>
+    </div>
+
+   
+
+          </div>
+        {{/each}}
+   
+
+
+
+
+    
+     
+
+
+
+    
+      <div class="new-user-container column col-12">
+      <a class="new-user-button" href="/users/new">Add new contact</a>
+      </div>
+     
+    </section>
+
+  {{/if}}
+
+</main>
