@@ -5,78 +5,39 @@
   </div>
   {{#if loggedIn}}
     {{#if isAdmin}}
-
       <section class="new-contact-section columns col-12">
-
         <form action="/contact/new" method="post">
           <fieldset class="columns col-12">
-
             <div class="columns col-6 col-md-12 new-contact-column">
-
-            
-
-
-
               <div class="column col-12 input-container">
                 <label for="cURL">Contact icon</label>
                 <br />
                 <input type="text" name="cURL" id="cURL" />
                 <br />
               </div>
-
-
-
-
-   <div class="column col-12 input-container">
+               <div class="column col-12 input-container">
                 <label for="cName">Contact name</label>
                 <br />
                 <input type="text" name="cName" id="cName" />
                 <br />
               </div>
-            
-
-
-               
-
-             
-
             </div>
-
             <div class="columns col-6 col-md-12 new-contact-column">
-
-
-
-                
-
-
-<div class="column col-12 input-container">
+            <div class="column col-12 input-container">
                 <label for="cInfo">Contact information: </label>
                 <br />
                 <input type="text" name="cInfo" id="cInfo" />
                 <br />
               </div>
-             
-
               <div class="column col-12 input-container">
                 <label for="cLink">Contact link: </label>
                 <br />
                 <input type="text" name="cLink" id="cLink" />
                 <br />
               </div>
-
-
-             
-
-
-    
-
-             
-
               </div>
-
             </div>
           </fieldset>
-
           <div class="column col-12">
             <input
               type="submit"
@@ -84,7 +45,6 @@
               class="new-contact-button"
             />
           </div>
-
         </form>
       </section>
     {{else}}

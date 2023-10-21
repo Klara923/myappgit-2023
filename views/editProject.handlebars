@@ -9,46 +9,38 @@
       <section class="edit-project-section columns col-12">
         <form action="/projects/edit/{{project.pId}}" method="post">
           <fieldset class="columns col-12">
-
             <div class="columns col-6 col-md-12 edit-project-column">
-
               <div class="column col-12 input-container">
                 <label for="pName">Project name</label>
                 <br />
                 <input type="text" name="pName" id="pName" />
                 <br />
               </div>
-
               <div class="column col-12 input-container">
                 <label for="pOverlayName">Overlay name</label>
                 <br />
                 <input type="text" name="pOverlayName" id="pOverlayName" />
                 <br />
               </div>
-
               <div class="column col-12 input-container">
                 <label for="pDate">Project date</label>
                 <br />
                 <input type="date" name="pDate" id="pDate" />
                 <br />
               </div>
-
               <div class="column col-12 input-container">
                 <label for="pURL">Project photo</label>
                 <br />
                 <input type="text" name="pURL" id="pURL" />
                 <br />
               </div>
-
               <div class="column col-12 input-container">
                 <label for="pAuthor">Project author</label>
                 <br />
                 <input type="text" name="pAuthor" id="pAuthor" />
                 <br />
               </div>
-
             </div>
-
             <div class="columns col-6 col-md-12 edit-project-column">
               <div class="column col-12 input-container">
                 <label for="pDesc">Project description</label>
@@ -61,21 +53,18 @@
                 ></textarea>
                 <br />
               </div>
-
               <div class="column col-12 input-container">
                 <label for="pTool">Project tool</label>
                 <br />
                 <input type="text" name="pTool" id="pTool" />
                 <br />
               </div>
-
               <div class="column col-12 input-container">
                 <label for="pType">Project type</label>
                 <br />
                 <input type="text" name="pType" id="pType" />
                 <br />
               </div>
-
               <div class="column col-12 input-container">
                 <label for="pProgramming">Is it programming project?</label>
                 <select name="pProgramming" id="pProgramming">
@@ -84,7 +73,6 @@
                 </select>
                 <br />
               </div>
-
               <div class="column col-12 input-container">
                 <label for="pDesign">Is it design project?</label>
                 <select name="pDesign" id="pDesign">
@@ -93,21 +81,16 @@
                 </select>
                 <br />
               </div>
-
             </div>
           </fieldset>
-
           <div class="column col-12">
             <input
               type="submit"
               value="Save changes"
               class="edit-contact-button"
             />
-
           </div>
-
         </form>
-
       </section>
     {{else}}
       <p>Sorry, you must be an administrator to edit a project!</p>
@@ -121,6 +104,5 @@
       page.
     </p>
   {{/if}}
-
 </main>
 

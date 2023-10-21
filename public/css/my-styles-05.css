@@ -99,7 +99,6 @@ li {
   padding: 0.3rem 0.6rem;
   color: var(--clr-purple);
   border: 1px solid var(--clr-purple);
-  /* font-family: "Montserrat", sans-serif; */
   font-weight: 300;
   z-index: 10;
   margin-bottom: 1rem;
@@ -219,11 +218,6 @@ li {
   gap: 1rem;
 }
 
-h1,
-h2 {
-  /* font-family: "Montserrat", sans-serif; */
-}
-
 h1 {
   letter-spacing: 0.5rem;
 }
@@ -235,7 +229,6 @@ h2 {
 
 .cv-container li,
 .cv-container p {
-  /* font-family: "Montserrat", sans-serif; */
   font-weight: 300;
   font-size: 0.9em;
 }
@@ -280,7 +273,7 @@ h2 {
   }
 
   .last-name {
-    font-size: 1.2em;
+    font-size: 0.7em;
   }
 
   .contact-section {

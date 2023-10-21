@@ -250,21 +250,21 @@ db.run(
           cURL: "img/mail.svg",
           cInfo: "klara.swiecicka@hotmail.com",
           cName: "mail",
-          cLink: null,
+          cLink: "-",
         },
         {
           cId: "1",
           cURL: "img/phone.svg",
           cInfo: "07 07 07 07 07",
           cName: "phone",
-          cLink: null,
+          cLink: "-",
         },
         {
           cId: "2",
           cURL: "img/pin.svg",
           cInfo: "Randomstreet 13, 123-45 Jönköping",
           cName: "address",
-          cLink: null,
+          cLink: "-",
         },
         {
           cId: "3",
@@ -559,18 +559,6 @@ app.use(
   })
 );
 
-// app.get("/start", (req, res) => {
-//   console.log("SESSION: ", req.session);
-//   const model = {
-//     loggedIn: false,
-//     name: "",
-//     isAdmin: false,
-//   };
-//   // res.render("start.handlebars", { title: "Start page", loggedIn: false });
-//   res.render("start.handlebars", model);
-//   req.session.destroy();
-// });
-
 app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -661,8 +649,6 @@ app.get("/", (req, res) => {
       res.render("home.handlebars", model);
     }
   });
-
-  // res.render("home.handlebars", { title: "Home page", loggedIn: true });
 });
 
 app.get("/about", (req, res) => {
@@ -697,6 +683,8 @@ app.get("/about", (req, res) => {
   });
 });
 
+// users
+
 app.get("/users", (req, res) => {
   db.all("SELECT * FROM users", (error, theUsers) => {
     if (error) {
@@ -725,6 +713,151 @@ app.get("/users", (req, res) => {
       res.render("users.handlebars", model);
     }
   });
+});
+
+// create new user
+
+app.get("/users/new", (req, res) => {
+  if (req.session.loggedIn == true && req.session.isAdmin == true) {
+    const model = {
+      loggedIn: req.session.loggedIn,
+      name: req.session.name,
+      isAdmin: req.session.isAdmin,
+    };
+    res.render("newUser.handlebars", model);
+  } else {
+    res.redirect("/login");
+  }
+});
+
+app.post("/users/new", (req, res) => {
+  const { uName, uUserName, uPassword, uType } = req.body;
+
+  if (req.session.loggedIn && req.session.isAdmin) {
+    // Hash the password
+    bcrypt.hash(uPassword, 10, (hashError, hashedPassword) => {
+      if (hashError) {
+        console.log("Password hashing error:", hashError);
+        res.redirect("/error-page"); // Handle the error appropriately
+      } else {
+        const newUser = [uName, uUserName, hashedPassword, uType];
+
+        // Insert the new user with the hashed password
+        db.run(
+          "INSERT INTO users (uName, uUserName, uPassword, uType) VALUES (?, ?, ?, ?)",
+          newUser,
+          (insertError) => {
+            if (insertError) {
+              console.log("ERROR: ", insertError);
+            } else {
+              console.log("Line added into the users table");
+            }
+            res.redirect("/users");
+          }
+        );
+      }
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
+
+// edit user
+
+app.get("/users/edit/:id", (req, res) => {
+  const id = req.params.id;
+
+  db.get("SELECT * FROM users WHERE uId=?", [id], (error, theUser) => {
+    if (error) {
+      console.log("ERROR: ", error);
+      const model = {
+        hasDatabaseError: true,
+        theError: error,
+        user: {},
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+      };
+      res.render("editUser.handlebars", model);
+    } else {
+      const model = {
+        hasDatabaseError: false,
+        theError: "",
+        user: theUser,
+        loggedIn: req.session.loggedIn,
+        name: req.session.name,
+        isAdmin: req.session.isAdmin,
+        helpers: {
+          uTypeU(value) {
+            return value == "User";
+          },
+          uTypeA(value) {
+            return value == "Admin";
+          },
+        },
+      };
+      res.render("editUser.handlebars", model);
+    }
+  });
+});
+
+app.post("/users/edit/:id", (req, res) => {
+  const id = req.params.id;
+  const editedU = [
+    req.body.uName,
+    req.body.uUserName,
+    req.body.uPassword,
+    req.body.uType,
+    id,
+  ];
+  if (req.session.loggedIn == true && req.session.isAdmin == true) {
+    db.run(
+      "UPDATE users SET uName=?, uUserName=?, uPassword=?, uType=? WHERE uId=?",
+      editedU,
+      (error) => {
+        if (error) {
+          console.log("ERROR: ", error);
+        } else {
+          console.log("User edited!");
+        }
+        res.redirect("/users");
+      }
+    );
+  } else {
+    res.redirect("/login");
+  }
+});
+
+// delete user
+
+app.get("/users/delete/:id", (req, res) => {
+  const id = req.params.id;
+
+  if (req.session.loggedIn == true && req.session.isAdmin == true) {
+    db.run("DELETE FROM users WHERE uId=?", [id], (error, theUsers) => {
+      if (error) {
+        const model = {
+          hasDatabaseError: true,
+          theError: error,
+          loggedIn: req.session.loggedIn,
+          name: req.session.name,
+          isAdmin: req.session.isAdmin,
+        };
+        res.redirect("/");
+      } else {
+        const model = {
+          hasDatabaseError: false,
+          theError: "",
+          loggedIn: req.session.loggedIn,
+          name: req.session.name,
+          isAdmin: req.session.isAdmin,
+        };
+        res.redirect("/");
+      }
+    });
+  } else {
+    res.redirect("/login");
+  }
 });
 
 app.get("/projects", (req, res) => {
@@ -837,7 +970,7 @@ app.get("/projects/:id", (req, res) => {
   });
 });
 
-// send the form to modify a project
+// sends the form to modify a project
 
 app.get("/projects/edit/:id", (req, res) => {
   const id = req.params.id;
@@ -915,7 +1048,7 @@ app.post("/projects/edit/:id", (req, res) => {
   }
 });
 
-// DELETE PROJECTS
+// delete a project
 
 app.get("/projects/delete/:id", (req, res) => {
   const id = req.params.id;
@@ -930,7 +1063,7 @@ app.get("/projects/delete/:id", (req, res) => {
           name: req.session.name,
           isAdmin: req.session.isAdmin,
         };
-        res.render("home.handlebars", model);
+        res.redirect("/");
       } else {
         const model = {
           hasDatabaseError: false,
@@ -939,7 +1072,7 @@ app.get("/projects/delete/:id", (req, res) => {
           name: req.session.name,
           isAdmin: req.session.isAdmin,
         };
-        res.render("home.handlebars", model);
+        res.redirect("/");
       }
     });
   } else {
@@ -947,11 +1080,7 @@ app.get("/projects/delete/:id", (req, res) => {
   }
 });
 
-// app.get("/projects/0", (req, res) => {
-//   const model = projects[0];
-
-//   res.render("project.handlebars", {});
-// });
+// contacts
 
 app.get("/contact", (req, res) => {
   db.all("SELECT * FROM contacts", (error, theContacts) => {
@@ -1035,7 +1164,7 @@ app.get("/contact/delete/:id", (req, res) => {
           name: req.session.name,
           isAdmin: req.session.isAdmin,
         };
-        res.render("home.handlebars", model);
+        res.redirect("/");
       } else {
         const model = {
           hasDatabaseError: false,
@@ -1044,7 +1173,7 @@ app.get("/contact/delete/:id", (req, res) => {
           name: req.session.name,
           isAdmin: req.session.isAdmin,
         };
-        res.render("home.handlebars", model);
+        res.redirect("/");
       }
     });
   } else {
@@ -1052,7 +1181,7 @@ app.get("/contact/delete/:id", (req, res) => {
   }
 });
 
-// send the form to modify a project
+// send the form to modify a contact
 
 app.get("/contact/edit/:id", (req, res) => {
   const id = req.params.id;
@@ -1089,7 +1218,6 @@ app.post("/contact/edit/:id", (req, res) => {
     req.body.cURL,
     req.body.cInfo,
     req.body.cName,
-    req.body,
     req.body.cLink,
     id,
   ];

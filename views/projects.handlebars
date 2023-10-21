@@ -8,8 +8,6 @@
     <h1 class="section-title">Programming</h1>
     <div class="section-line column col-12"></div>
     </div>
-
-
     {{#if hasDatabaseError}}
    <div>Sorry, there was a problem with the database:<br />
 {{theError}}
@@ -18,37 +16,26 @@
     <div class="columns col-12 col-md-12 programming-container">
       {{#each projects}}
         {{#if pProgramming}}
-        
           <div
             class="thumbnail-container column col-3 col-md-8"
             id="thumbnail-container"
           >
-
 {{#if ../loggedIn}}
-                    {{#if ../isAdmin}}
-
+ {{#if ../isAdmin}}
     <div class="icons-container columns col-3 col-md-4">
-      
       <div class="column col-6 ">
       <a href="/projects/edit/{{pId}}">
      <img  src="img/pencil-edit.svg" alt="">
       </a>
       </div>
-
       <div class="column col-6 ">
       <a href="/projects/delete/{{pId}}">
       <img  src="img/trash.svg" alt="">
       </a>
       </div>
     </div>
-
     {{/if}}
     {{/if}}
-
-
-
-
-
           <a href="/projects/{{pId}}">
             <div class="column col-12 col-md-12 thumbnail-image-container">
               <img class="column col-12 col-md-12" src="{{pURL}}" alt="" />
@@ -64,11 +51,7 @@
               <div class="span-container">
                 <span class="p-author">{{pAuthor}}<span
                     class="p-date"
-                  >{{pDate}}</span></span>
-
-
-
-                 
+                  >{{pDate}}</span></span> 
               </div>
             </div>
           </div>
@@ -82,40 +65,29 @@
     <h1 class="section-title">Design</h1>
     <div class="section-line column col-12"></div>
     </div>
-
     <div class="columns col-12 design-container">
-
       {{#each projects}}
         {{#if pDesign}}
-
           <div
             class="thumbnail-container column col-3 col-md-8"
             id="thumbnail-container"
           >
-
 {{#if ../loggedIn}}
-                    {{#if ../isAdmin}}
-
+{{#if ../isAdmin}}
     <div class="icons-container columns col-3 col-md-4">
-      
       <div class="column col-6">
       <a href="/projects/edit/{{pId}}">
      <img  src="img/pencil-edit.svg" alt="">
       </a>
       </div>
-
       <div class="column col-6">
       <a href="/projects/delete/{{pId}}">
       <img  src="img/trash.svg" alt="">
       </a>
       </div>
     </div>
-
     {{/if}}
     {{/if}}
-
-
-
           <a href="/projects/{{pId}}">
             <div class="column col-12 thumbnail-image-container">
               <img class="column col-12" src="{{pURL}}" alt="" />
@@ -132,26 +104,19 @@
                 <span class="p-author">{{pAuthor}}<span
                     class="p-date"
                   >{{pDate}}</span></span>
-
-    
-                  
-                
               </div>
             </div>
           </div>
-
         {{/if}}
       {{/each}}
       {{/if}}
-
-      {{#if loggedIn}}
-      {{#if isAdmin}}
-      <div class="add-button-container column col-12">
-      <a class="new-button" href="/projects/new">Add a new project!</a>
-      </div>
-      {{/if}}
-      {{/if}}
-
+{{#if loggedIn}}
+{{#if isAdmin}}
+<div class="add-button-container column col-12">
+  <a class="new-button" href="/projects/new">Add a new project!</a>
+</div>
+{{/if}}
+{{/if}}
     </div>
   </section>
 </main>

@@ -1,0 +1,63 @@
+<main id="main" class="column col-12 main-edit-project">
+  <div class="column col-12">
+    <h1 class="section-title">Edit project</h1>
+    <div class="section-line columns col-12"></div>
+  </div>
+  {{#if loggedIn}}
+    {{#if isAdmin}}
+      <section class="edit-project-section columns col-12">
+        <form action="/users/edit/{{user.uId}}" method="post">
+          <fieldset class="columns col-12">
+            <div class="columns col-6 col-md-12 edit-project-column">
+              <div class="column col-12 input-container">
+                <label for="uName">Nick</label>
+                <br />
+                <input type="text" name="uName" id="uName" />
+                <br />
+              </div>
+              <div class="column col-12 input-container">
+                <label for="uUserName">Username</label>
+                <br />
+                <input type="text" name="uUserName" id="uUserName" />
+                <br />
+              </div>
+            </div>
+            <div class="columns col-6 col-md-12 edit-project-column">
+              <div class="column col-12 input-container">
+                <label for="uPassword">Password</label>
+                <br />
+                <input type="text" name="uPassword" id="uPassword" />
+                <br />
+              </div>
+              <div class="column col-12 input-container">
+                <label for="uTypr">Type</label>
+                <select name="uType" id="uType">
+                  <option value="User" {{#if (uTypeU user.uType)}} selected="selected"{{/if}}>User</option>
+                  <option value="Admin" {{#if (uTypeA user.uType)}} selected="selected"{{/if}}>Admin</option>
+                </select>
+                <br />
+              </div>
+            </div>
+          </fieldset>
+          <div class="column col-12">
+            <input
+              type="submit"
+              value="Save changes"
+              class="edit-contact-button"
+            />
+          </div>
+        </form>
+      </section>
+    {{else}}
+      <p>Sorry, you must be an administrator to edit a project!</p>
+    {{/if}}
+  {{else}}
+    <p>
+      Sorry, you must be logged in to edit theproject!
+      <br />
+      Please go to the
+      <a href="/login">login</a>
+      page.
+    </p>
+  {{/if}}
+</main>

@@ -23,10 +23,6 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-#thumbnail-container-1 {
-  /* width: 30%; */
-}
-
 .main-start {
   padding: 0;
   gap: 2rem;
@@ -50,7 +46,6 @@ h2 {
 header.logged-in,
 header {
   justify-content: space-between;
-  /* align-items: center; */
   padding: 2rem;
 }
 
@@ -63,24 +58,14 @@ header {
 }
 
 nav.logged-in {
-  /* justify-content: space-between; */
-  /* padding: 1rem 2rem; */
-
   justify-content: flex-end;
   align-items: center;
   margin-top: 0.5rem;
-  /* background: green; */
-  /* text-align: center; */
 }
 
 nav {
-  /* justify-content: space-between; */
-  /* padding: 1rem 2rem; */
-
   justify-content: flex-end;
   align-items: center;
-
-  /* text-align: center; */
 }
 
 .logo-container {
@@ -89,7 +74,6 @@ nav {
 
 .logo-container h1 {
   --s: 0.1em; /* the thickness of the line */
-
   font-weight: 900;
   font-size: 1.7rem;
   letter-spacing: 0.1rem;
@@ -119,18 +103,12 @@ nav {
   border: 0.5px solid var(--clr-white);
   padding: 0.3rem 1.4rem;
   transition: 0.2s;
-
-  /* justify-content: center;
-    align-items: center;
-    padding: 0.5rem 1rem; */
 }
 
 .s-screen {
   display: none;
   font-size: 2rem;
 }
-
-/* Responsiveness for navbar */
 
 li {
   list-style-type: none;
@@ -149,13 +127,6 @@ a:hover {
   color: var(--clr-purple);
 }
 
-.sign-div:hover {
-}
-
-.sign-a:hover {
-}
-
-/* Description on start page */
 .desc-section h1 {
   font-size: 2.5rem;
   font-weight: 600;
@@ -167,11 +138,8 @@ a:hover {
 
 /* Buttons - portfolio page */
 .buttons-pages {
-  /* justify-content: space-between; */
   align-items: center;
   justify-content: flex-end;
-
-  /* gap: 1rem; */
 }
 
 .buttons-container {
@@ -181,7 +149,6 @@ a:hover {
 
 .sign-div {
   justify-content: flex-end;
-  /* border: 1px solid pink; */
 }
 
 .buttons-container.sign {
@@ -189,57 +156,8 @@ a:hover {
 }
 
 .pages-container {
-  /* justify-content: space-between; */
   gap: 2rem;
   align-items: center;
-}
-
-/* Start page and carousel */
-
-.desc-section {
-  padding: 5%;
-}
-.carousel-section {
-  overflow: hidden;
-}
-
-/* Carousel with photos on start page */
-.carousel {
-  white-space: nowrap;
-  position: relative;
-}
-
-.carousel::before,
-.carousel::after {
-  position: absolute;
-  top: 0;
-  width: 10%;
-  height: 100%;
-  content: "";
-  z-index: 2;
-}
-
-.carousel::before {
-  left: 0;
-  background: linear-gradient(to left, transparent, black);
-}
-
-.carousel::after {
-  left: 90%;
-  background: linear-gradient(to right, transparent, black);
-}
-
-/* .carousel:hover .carousel-slide {
-    animation-play-state: paused;
-  } */
-
-.carousel-slide {
-  display: inline-block;
-  animation: 30s slide infinite linear;
-}
-
-.carousel-slide img {
-  height: 20vh;
 }
 
 @keyframes slide {
@@ -254,7 +172,7 @@ a:hover {
 /* Footer */
 
 footer {
-  background: red;
+  background: var(--clr-purple);
   text-align: center;
 }
 
@@ -317,12 +235,6 @@ footer {
 
 /* Form and inputs on login page */
 
-.form-container {
-}
-
-.desc-container {
-}
-
 .inputs-container {
   gap: 1rem;
 }
@@ -354,21 +266,10 @@ form {
 input:valid {
   border: 1px solid var(--clr-white);
 }
-/* 
-input:invalid {
-  border: 1px solid red;
-} */
 
 .no-active {
   display: none;
 }
-
-/* Projects page */
-
-/* .thumbnail-container img {
-  min-width: 30rem;
-  max-width: 40rem;
-} */
 
 .section-line {
   content: "";
@@ -393,9 +294,6 @@ input:invalid {
   margin-left: 2rem;
 }
 
-.thumbnail-container {
-}
-
 .thumbnail-image-container {
   position: relative;
 
@@ -409,8 +307,6 @@ input:invalid {
   object-fit: cover;
   padding: 0;
   margin: 0;
-
-  /* width: 40rem; */
   height: 15rem;
   width: 100%;
 }
@@ -517,8 +413,19 @@ input:invalid {
   gap: 1rem;
 }
 
-.contact-container {
+.contact-container,
+.users-container {
   align-items: center;
+}
+
+.users-container {
+  border: 0.5px solid var(--clr-white);
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.users-small-container {
+  gap: 1rem;
 }
 
 .contact-container img {
@@ -541,10 +448,6 @@ input:invalid {
 .map {
   width: 100%;
   height: 15rem;
-}
-
-.contact-link {
-  color: red;
 }
 
 .new-contact-container {
@@ -640,10 +543,15 @@ input:invalid {
   gap: 0.5rem;
 }
 
-.input-container label {
+.input-container label,
+.user-container label {
   font-size: 0.8em;
   text-transform: uppercase;
   font-weight: 500;
+}
+
+.btn-users {
+  margin-top: 1rem;
 }
 
 @media only screen and (max-width: 850px) {
@@ -675,14 +583,11 @@ input:invalid {
 
   nav.closed {
     position: absolute;
-    /* translate: 30rem 0rem; */
     translate: 30rem 0rem;
     transition: 0.2s ease-in-out;
   }
   nav.open {
     position: absolute;
-    /* translate: 100rem 0rem; */
-    /* margin-top: 14rem; */
   }
   .buttons-pages {
     padding: 1rem;
@@ -706,5 +611,9 @@ input:invalid {
 
   iframe {
     margin-top: 3rem;
+  }
+
+  #welcome {
+    font-size: 3em;
   }
 }

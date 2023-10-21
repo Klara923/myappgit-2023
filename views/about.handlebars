@@ -2,15 +2,8 @@
 
    <link rel="stylesheet" type="text/css" href="/css/my-styles-05.css">
 <main id="main column col-12">
-
-
-  {{!-- {{>cv}} --}}
-
-
   <div id="cv">
     <div class="container cv-container">
-    
-
       <!-- Header/Hero section -->
       <section class="header-section columns col-md-12">
         <div class="photo-container column col-3 col-md-12">
@@ -43,9 +36,6 @@
           </div>
         </div>
       </section>
-
-
-
       <!-- Main section -->
       <main class="main-section columns col-12 col-md-12">
         <!-- Left column -->
@@ -55,7 +45,6 @@
               <h2 class="column col-3">Languages</h2>
               <div class="language columns col-oneline col-12">
                 <p class="column col-4">Polish</p>
-
                 <div class="dots-container columns col-oneline col-8">
                   <span class="dot filled column col-2"></span>
                   <span class="dot filled column col-2"></span>
@@ -64,7 +53,6 @@
                   <span class="dot filled column col-2"></span>
                 </div>
               </div>
-
               <div class="language columns col-oneline col-12">
                 <p class="column col-4">English</p>
                 <div class="dots-container columns col-oneline col-8">
@@ -75,7 +63,6 @@
                   <span class="dot column col-2"></span>
                 </div>
               </div>
-
               <div class="language columns col-oneline col-12">
                 <p class="column col-4">Swedish</p>
                 <div class="dots-container columns col-oneline col-8">
@@ -92,8 +79,6 @@
               <p class="column col-12">design</p>
               <div class="design-skills columns col-12">
                 <div class="columns col-oneline col-12">
-
-
                   <img
                     src="img/ps.svg"
                     alt="Photoshop icon"
@@ -105,7 +90,6 @@
                     class="column col-6"
                   />
                 </div>
-
                 <div class="columns col-oneline col-12">
                   <img
                     src="img/id.svg"
@@ -117,19 +101,8 @@
                     alt="Figma icon"
                     class="column col-6"
                   />
-              
-
-                
-
-
-
                 </div>
-
-
               </div>
-
-
-
               <p class="column col-12">programming</p>
               <div class="prog-skills columns col-12">
                 <div class="columns col-oneline col-12">
@@ -157,7 +130,6 @@
             </div>
           </div>
         </div>
-
         <!-- Right column -->
         <div class="right-column column col-7 col-md-12">
           <div class="columns">
@@ -182,20 +154,11 @@
             <div class="work-exp column col-12">
               <h2>Work Experience</h2>
               <div class="border-bottom"></div>
-               
               <ul>
-                
-                
-               
-               
                 {{#each works}}
                 <li><span>{{wDate}}</span> {{wTitle}}, {{wPlace}}, {{wCountry}}</li>
-                  
-           {{/each}}
-        
-          
+                {{/each}}
               </ul>
-              
             </div>
             <div class="oth-exp column col-12">
               <h2>Other Experience</h2>
@@ -211,5 +174,4 @@
           </div>
         </div>
       </main>
-
 </main>
