@@ -613,15 +613,6 @@ app.get("/logout", (req, res) => {
 
 app.get("/", (req, res) => {
   console.log("SESSION: ", req.session);
-
-  saltRounds = 12;
-  bcrypt.hash("0914", saltRounds, (err, hash) => {
-    if (err) {
-      console.log("Error encrypting the password: ", err);
-    } else {
-      console.log("Hashed password (GENERATE only ONCE): ", hash);
-    }
-  });
   db.all("SELECT * FROM images", (error, theImages) => {
     if (error) {
       const model = {
