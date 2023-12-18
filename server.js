@@ -619,7 +619,7 @@ app.get("/", (req, res) => {
         hasDatabaseError: true,
         theError: error,
         images: [],
-
+        homePage: true,
         title: "Home page",
         loggedIn: req.session.loggedIn,
         name: req.session.name,
@@ -631,7 +631,7 @@ app.get("/", (req, res) => {
         hasDatabaseError: false,
         theError: "",
         images: theImages,
-
+        homePage: true,
         title: "Home page",
         loggedIn: req.session.loggedIn,
         name: req.session.name,

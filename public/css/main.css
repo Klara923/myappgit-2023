@@ -1,5 +1,123 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.cdnfonts.com/css/akira-expanded");
+@font-face {
+  font-family: "Hiragino Kakugo StdN W8";
+  src: url("path-to-your-font/HiraginoKakugoStdN-W8.woff2") format("woff2"),
+    url("path-to-your-font/HiraginoKakugoStdN-W8.woff") format("woff");
+  /* Add more formats if necessary, and make sure to provide the correct paths to your font files */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hiragino Kakugo StdN W9";
+  src: url("path-to-your-font/HiraginoKakugoStdN-W9.woff2") format("woff2"),
+    url("path-to-your-font/HiraginoKakugoStdN-W9.woff") format("woff");
+  font-weight: bold; /* This is the bold (W9) weight */
+  font-style: normal;
+}
+/* font-family: 'Akira Expanded', sans-serif; */
+
+.pixelcat-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#pixelcat {
+  margin-right: 5.5vw;
+  font-size: 14.8vw;
+  font-family: "Akira Expanded", sans-serif;
+  color: var(--clr-neon-green);
+  text-shadow: rgba(5, 255, 159, 0.9) 0px 0px 7px;
+  animation: fadeUp 2s ease-in-out forwards;
+}
+
+#pixelcat-japanese {
+  font-family: "Hiragino Kakugo StdN W9", sans-serif;
+  font-weight: bold;
+
+  font-size: 3vw;
+  letter-spacing: 0.5vw;
+  -webkit-text-stroke-width: 0.1vw;
+  -webkit-text-stroke-color: var(--clr-neon-green);
+  color: transparent;
+  margin-top: -13vw;
+  animation: fadeUp 4s ease-in-out forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateY(
+      20px
+    ); /* Optionally, you can add a slight vertical translation */
+  }
+  to {
+    opacity: 1; /* End with opacity 1 (fully visible) */
+    transform: translateY(0); /* End with no vertical translation */
+  }
+}
+
+.main-home {
+  padding: 0;
+  padding-bottom: 5vh;
+}
+
+.home-section {
+  padding: 5%;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 8vw;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border-bottom: 0.5px solid var(--clr-neon-green);
+  border-top: 0.5px solid var(--clr-neon-green);
+}
+
+.text-items {
+  display: flex;
+  animation: slide 40s linear infinite;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.text-item {
+  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
+  display: flex;
+  min-width: 20vw;
+  max-width: 1000vw;
+  box-sizing: border-box;
+  padding: 1vw;
+  text-align: center;
+  color: var(--clr-neon-green);
+  font-size: 4vw;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  75% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
 
 *,
 *::before,
@@ -13,26 +131,27 @@
   --clr-black: #000000;
   --clr-white: #ffffff;
   --clr-blue: #2c4bff; /* the color */
-  --clr-purple: #6f4a8e;
+  --clr-purple: #8205ff;
   --clr-light-purple: #cbc3e3;
+  --clr-neon-green: #05ff9f;
 }
 
 body {
   background: var(--clr-black);
   color: #ffffff;
-  font-family: "Inter", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .main-start {
   padding: 0;
   gap: 2rem;
-  min-height: 70vh;
+  /* min-height: 70vh; */
 }
 
 main {
   padding: 5%;
   gap: 2rem;
-  min-height: 70vh;
+  /* min-height: 70vw; */
 }
 
 .main-projects {
@@ -54,7 +173,7 @@ header.logged-in {
 }
 
 header {
-  padding-right: 4rem;
+  /* border-bottom: 0.1px solid var(--clr-neon-green); */
 }
 
 nav.logged-in {
@@ -72,29 +191,9 @@ nav {
   align-items: center;
 }
 
-.logo-container h1 {
-  --s: 0.1em; /* the thickness of the line */
-  font-weight: 900;
-  font-size: 1.7rem;
-  letter-spacing: 0.1rem;
-  font-family: "Syne", sans-serif;
-  color: var(--clr-white);
-  padding-bottom: var(--s);
-  background: linear-gradient(90deg, var(--clr-purple) 50%, #000 0)
-      calc(100% - var(--_p, 0%)) / 200% 100%,
-    linear-gradient(var(--clr-purple) 0 0) 0% 100% / var(--_p, 0%) var(--s)
-      no-repeat;
-  -webkit-background-clip: text, padding-box;
-  background-clip: text, padding-box;
-  transition: 0.5s;
-}
-.logo-container h1:hover {
-  --_p: 100%;
-  color: var(--clr-purple);
-}
-
 /* All buttons with "button" class, so basically links in navbars */
-.button {
+
+/* .button {
   text-align: center;
   justify-content: flex-start;
   align-items: center;
@@ -103,6 +202,17 @@ nav {
   border: 0.5px solid var(--clr-white);
   padding: 0.3rem 1.4rem;
   transition: 0.2s;
+} */
+
+.button-page,
+.button {
+  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 0.7rem;
 }
 
 .s-screen {
@@ -137,6 +247,12 @@ a:hover {
 }
 
 /* Buttons - portfolio page */
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+}
+
 .buttons-pages {
   align-items: center;
   justify-content: flex-end;
@@ -172,65 +288,31 @@ a:hover {
 /* Footer */
 
 footer {
-  background: var(--clr-purple);
+  background: rgba(0, 0, 0, 0.9);
   text-align: center;
+}
+
+footer > * {
+  padding: 0.5rem;
 }
 
 /* Home page */
 
-.cats-container-top,
-.cats-container-bottom {
-  justify-content: space-between;
-  align-items: center;
+.body-home {
+  position: relative;
+}
+
+.body-home::before {
+  background-image: url("/img/black-bg-japan-green.png");
+  background-size: 30%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1; /* Adjust the opacity value as needed (0.0 to 1.0) */
   z-index: -1;
-}
-
-.cats-container-top img,
-.cats-container-bottom img {
-  object-fit: cover;
-  opacity: 0.2;
-}
-
-#small-cat {
-  width: 25%;
-}
-
-.welcome-container {
-  text-align: center;
-  margin-top: -6rem;
-}
-
-.welcome-container h1 {
-  font-family: "Syne", sans-serif;
-  color: var(--clr-purple);
-  font-size: 6em;
-  font-weight: 900;
-  margin: 0;
-  padding: 0;
-}
-
-.welcome-container h6 {
-  font-weight: 100;
-  font-size: 1em;
-}
-
-.welcome-container h5 {
-  font-family: "Syne", sans-serif;
-  color: var(--clr-light-purple);
-  font-weight: 700;
-  font-size: 4em;
-}
-
-.welcome-container span {
-  color: var(--clr-light-purple);
-  font-weight: 700;
-  font-size: 1em;
-}
-
-.welcome-container h4 {
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
 }
 
 /* Form and inputs on login page */
@@ -566,47 +648,68 @@ input:valid {
     display: block;
   }
   nav.logged-in {
-    margin-left: 12rem;
+    margin-left: 40vw;
+    min-height: 100vh;
+    background: var(--clr-black);
   }
   .x-icon {
-    position: absolute;
+    /* position: absolute;
     margin-top: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.2rem; */
+    /* margin: 0; */
+    padding: 0;
+
+    display: flex;
+    align-self: flex-start;
+    margin-top: 8vw;
+  }
+
+  .fa-x {
+    font-size: 5vw;
   }
 
   nav.logged-in {
-    padding: 2rem 1rem;
+    /* padding: 5vw 2.5vw; */
     margin-top: -2rem;
     background: var(--clr-black);
     z-index: 2;
+    width: 100vw;
   }
 
   nav.closed {
-    position: absolute;
-    translate: 30rem 0rem;
+    position: fixed;
+    translate: 70vw 0rem;
     transition: 0.2s ease-in-out;
   }
   nav.open {
-    position: absolute;
+    position: fixed;
   }
   .buttons-pages {
+    /* display: flex; */
     padding: 1rem;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
     gap: 1rem;
   }
   .buttons-container {
-    padding-top: 1rem;
+    padding-top: 2vw;
+
+    display: flex;
   }
 
   .button-page,
   .button {
-    text-align: center;
+    display: flex;
+    /* text-align: center;
     justify-content: flex-start;
     align-items: center;
     background: none;
     border: none;
-    padding: 0.3rem 1.4rem;
+    padding: 0.3rem 1.4rem; */
+
+    max-width: 2vw;
+    justify-content: flex-start;
+    font-size: 4vw;
   }
 
   iframe {
@@ -615,5 +718,14 @@ input:valid {
 
   #welcome {
     font-size: 3em;
+  }
+
+  .main-home {
+    min-height: 70vh;
+  }
+
+  .pixelcat-container {
+    display: flex;
+    gap: 5vw;
   }
 }

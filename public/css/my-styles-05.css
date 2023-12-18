@@ -1,5 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.cdnfonts.com/css/akira-expanded");
+@font-face {
+  font-family: "Hiragino Kakugo StdN W8";
+  src: url("path-to-your-font/HiraginoKakugoStdN-W8.woff2") format("woff2"),
+    url("path-to-your-font/HiraginoKakugoStdN-W8.woff") format("woff");
+  /* Add more formats if necessary, and make sure to provide the correct paths to your font files */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hiragino Kakugo StdN W9";
+  src: url("path-to-your-font/HiraginoKakugoStdN-W9.woff2") format("woff2"),
+    url("path-to-your-font/HiraginoKakugoStdN-W9.woff") format("woff");
+  font-weight: bold; /* This is the bold (W9) weight */
+  font-style: normal;
+}
 
 *,
 *::before,
@@ -12,7 +31,14 @@
 :root {
   --clr-black: #050505;
   --clr-white: #ebebeb;
-  --clr-purple: #6f4a8e;
+  --clr-purple: #8205ff;
+
+  --clr-black: #000000;
+  --clr-white: #ffffff;
+  --clr-blue: #2c4bff; /* the color */
+  --clr-purple: #8205ff;
+  --clr-light-purple: #cbc3e3;
+  --clr-neon-green: #05ff9f;
 }
 
 body {
@@ -95,24 +121,24 @@ li {
   margin-left: 20rem;
 }
 
-.nmd {
+/* .nmd {
   padding: 0.3rem 0.6rem;
   color: var(--clr-purple);
   border: 1px solid var(--clr-purple);
   font-weight: 300;
   z-index: 10;
   margin-bottom: 1rem;
-}
+} */
 
 .names-container {
   line-height: 4rem;
   z-index: 20;
-  font-family: "Syne", sans-serif;
+  font-family: "Akira Expanded", sans-serif;
 }
 
 .last-name {
   font-size: 1.5em;
-  color: var(--clr-purple);
+  color: var(--clr-neon-green);
   z-index: -1;
   z-index: 20;
   font-weight: 800;

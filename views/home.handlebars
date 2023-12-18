@@ -1,32 +1,23 @@
 <!-- Main -->
-<main id="main column col-12">
-  <section class="home-section columns col-12">
-    <div class="cats-container-top columns col-12">
+<main id="main column col-12" class="main-home">
+  <section class="home-section columns col-12 col-md-12">
+    <div class="pixelcat-container columns col-12 col-md-12">
+      <h1 class="column col-12 col-md-12" id="pixelcat">PIXELCAT</h1>
 
-      {{#each images}}
-        {{#if isTop}}
-          <img class="column col-2" src="{{iURL}}" alt="{{iURLAlt}}" />
-
-        {{/if}}
-      {{/each}}
-
+      <p class="column col-12 col-md-12" id="pixelcat-japanese">ピクセル猫</p>
     </div>
-    <div class="welcome-container column col-12 col-md-12">
-      <h1 id="welcome">WELCOME!</h1>
-      <h6>to my</h6>
-      <h5><span class="amazing-span">&#9829;&#9829;&#9829;</span>
-        amazing
-        <span class="amazing-span">&#9829;&#9829;&#9829;</span></h5>
-      <h4 class="column col-12" id="portfolio-text"><span
-        >✨✨✨</span>purrrtfolio<span>✨✨✨</span></h4>
-    </div>
-    <div class="cats-container-bottom columns col-12">
-      {{#each images}}
-        {{#if isBottom}}
-          <img class="column col-2" src="{{iURL}}" alt="{{iURLAlt}}" />
 
-        {{/if}}
-      {{/each}}
-    </div>
+    {{! <div class="column col-1">
+      <img id="cat-img" src="img/cat logo green svg.svg" alt="" />
+    </div> }}
+
   </section>
+  <div class="slider column col-12 col-md-12">
+    <div class="text-items">
+      <p
+        class="text-item"
+      >NANANANNANANANANANANNANANANANANANANNANANANANANNANAN</p>
+    </div>
+  </div>
+
 </main>
