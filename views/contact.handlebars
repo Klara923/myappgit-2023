@@ -1,6 +1,6 @@
 <!-- Main -->
 
-<main id="main" class="column col-12 main-contact">
+{{!-- <main id="main" class="column col-12 main-contact">
   <div class="column col-12">
     <h1 class="section-title">Contact</h1>
     <div class="section-line columns col-12"></div>
@@ -11,12 +11,11 @@
     </div>
   {{else}}
     <section class="contact-section columns col-12">
-      <div class="contacts columns col-4 col-md-12">
+      <div class="contacts columns col-6 col-md-12">
         {{#each contacts}}
           <div class="contact-container columns col-12">
-            <img class="column col-2" src="{{cURL}}" alt="" />
-            <span class="column col-3">{{cName}}</span>
-            <span class="column col-3">{{cInfo}}</span>
+            <img class="column col-6" src="{{cURL}}" alt="" />
+            <span class="column col-6">{{cInfo}}</span>
     {{#if ../loggedIn}}
     {{#if ../isAdmin}}
     <div class="icons-container contact-icons columns col-2">
@@ -35,24 +34,80 @@
     {{/if}}
           </div>
         {{/each}}
+      </div> --}}
+   
+
+   <main id="main" class="column col-12 main-contact">
+  <div class="column col-12">
+    <h1 class="section-title">Contact</h1>
+    <div class="section-line columns col-12"></div>
+  </div>
+  {{#if hasDatabaseError}}
+    <div>Sorry, there was a problem: <br />
+      {{theError}}
+    </div>
+  {{else}}
+    <section class="contact-section columns col-12">
+      <div class="contacts columns col-6 col-md-12">
+
+
+    
+          <div class="contact-container columns col-12">
+<a href="mailto:klara.swiecicka@hotmail.com" class="column col-12">
+            <img class="column col-6" src="img/mail-fill.svg" alt="" />
+            <span class="column col-6">klara.swiecicka@hotmail.com</span>
+            </a>
+          </div>
+
+          <div class="contact-container columns col-12">
+<a href="tel:+460760578464" class="column col-12">
+            <img class="column col-6" src="img/phone-fill.svg" alt="" />
+            <span class="column col-6">+460760578464</span>
+            </a>
+          </div>
+
+            <div class="contact-container columns col-12">
+<a href="#" class="column col-12 disabled-link">
+            <img class="column col-6" src="img/map-pin-fill.svg" alt="" />
+            <span class="column col-6">Jönköping, Sweden</span>
+            </a>
+          </div>
+
+                   <div class="contact-container columns col-12">
+<a href="www.linkedin.com/in/klara-swiecicka-824262275" class="column col-12">
+            <img class="column col-6" src="img/linkedin-box-fill.svg" alt="" />
+            <span class="column col-6">Klara Swiecicka</span>
+            </a>
+          </div>
+
+                          <div class="contact-container columns col-12">
+<a href="https://github.com/Klara923" class="column col-12">
+            <img class="column col-6" src="img/github-fill.svg" alt="" />
+            <span class="column col-6">Klara923</span>
+            </a>
+          </div>
+
+
       </div>
-      <div class="map-container column col-8 col-md-12">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17024.327598399!2d14.217848750000002!3d57.7667072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sse!4v1696619225932!5m2!1sen!2sse"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          class="map"
-        ></iframe>
-      </div>
-      {{#if loggedIn}}
+     
+          <form class="contact-form columns col-6" method="POST">
+      <h2 class="column col-12">Send me a message!</h2>
+      <input class="column col-12" type="text" id="formName" placeholder="Full name" autocomplete="formName">
+      <input class="column col-12" type="email" id="formEmail" placeholder="Email" autocomplete="formEmail">
+      <input class="column col-12" type="test" id="formSubject" placeholder="Subject" >
+      <textarea class="column col-12"  id="formMessage" placeholder="Message" cols="30" rows="10"></textarea>
+      <input id="submitContact" class="column col-6 submitContact" type="submit" value="Send Message">
+    </form>
+  </div>
+   {{!-- {{#if loggedIn}}
       {{#if isAdmin}}
       <div class="new-contact-container column col-12">
       <a class="new-contact-button" href="/contact/new">Add new contact</a>
       </div>
       {{/if}}
-      {{/if}}
+      {{/if}} --}}
     </section>
   {{/if}}
+  <div class="contact-form-container">
+
 </main>

@@ -5,7 +5,7 @@
   font-family: "Hiragino Kakugo StdN W8";
   src: url("path-to-your-font/HiraginoKakugoStdN-W8.woff2") format("woff2"),
     url("path-to-your-font/HiraginoKakugoStdN-W8.woff") format("woff");
-  /* Add more formats if necessary, and make sure to provide the correct paths to your font files */
+
   font-weight: normal;
   font-style: normal;
 }
@@ -14,9 +14,10 @@
   font-family: "Hiragino Kakugo StdN W9";
   src: url("path-to-your-font/HiraginoKakugoStdN-W9.woff2") format("woff2"),
     url("path-to-your-font/HiraginoKakugoStdN-W9.woff") format("woff");
-  font-weight: bold; /* This is the bold (W9) weight */
+  font-weight: bold;
   font-style: normal;
 }
+
 /* font-family: 'Akira Expanded', sans-serif; */
 
 .pixelcat-container {
@@ -58,6 +59,15 @@
   to {
     opacity: 1; /* End with opacity 1 (fully visible) */
     transform: translateY(0); /* End with no vertical translation */
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
@@ -155,7 +165,7 @@ main {
 }
 
 .main-projects {
-  padding: 0;
+  padding: 5vw 0;
 }
 
 h2 {
@@ -234,7 +244,7 @@ a:active {
 }
 
 a:hover {
-  color: var(--clr-purple);
+  color: var(--clr-neon-green);
 }
 
 .desc-section h1 {
@@ -276,14 +286,14 @@ a:hover {
   align-items: center;
 }
 
-@keyframes slide {
+/* @keyframes slide {
   from {
     transform: translateX(0);
   }
   to {
     transform: translateX(-100%);
   }
-}
+} */
 
 /* Footer */
 
@@ -362,6 +372,9 @@ input:valid {
 .programming-section,
 .design-section {
   gap: 2rem;
+  animation: fadeUp 2s ease-in-out forwards;
+  /* animation: fade linear; */
+  /* animation-timeline: view(); */
 }
 
 .programming-container,
@@ -378,7 +391,6 @@ input:valid {
 
 .thumbnail-image-container {
   position: relative;
-
   padding: 0;
   margin: 0;
   margin-bottom: 0.3rem;
@@ -389,7 +401,7 @@ input:valid {
   object-fit: cover;
   padding: 0;
   margin: 0;
-  height: 15rem;
+  height: 70vh;
   width: 100%;
 }
 
@@ -403,7 +415,7 @@ input:valid {
   width: 100%;
   opacity: 0;
   transition: 0.5s ease;
-  background: var(--clr-purple);
+  background: var(--clr-neon-green);
 }
 
 .thumbnail-image-container:hover .overlay {
@@ -412,7 +424,8 @@ input:valid {
 
 .text {
   color: white;
-  font-size: 20px;
+  font-family: "Akira Expanded", sans-serif;
+  font-size: 3vw;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -454,7 +467,8 @@ input:valid {
 /* Individual propject page */
 
 .title-container h1 {
-  font-weight: 700;
+  font-family: "Akira Expanded", sans-serif;
+  font-size: 5vw;
 }
 
 .info-container {
@@ -462,10 +476,207 @@ input:valid {
   align-items: center;
   row-gap: 4rem;
   column-gap: 2rem;
+  animation: fadeUp 4s ease-in-out forwards;
+  margin: 5vw 0;
 }
 
-.project-img {
-  width: 40%;
+.info-container h3 {
+  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
+  font-weight: 100;
+}
+
+.one-data {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 1.5em !important;
+  color: var(--clr-neon-green) !important;
+}
+
+.projects-main {
+  animation: fadeUp 2s ease-in-out forwards;
+}
+
+.desc-container h2 {
+  font-family: "Akira Expanded", sans-serif;
+}
+
+.desc-container p {
+  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
+  font-weight: 100;
+}
+
+/* .project-section-2 {
+  justify-content: center;
+  padding: 5vw;
+  gap: 10vh;
+  margin-bottom: 50vh;
+} */
+
+.project-container-1,
+.project-container-2,
+.project-container-3 {
+  justify-content: space-between;
+  padding: 0 5vw;
+  align-items: center;
+  margin: 5vw 0;
+}
+
+.project-container-1 {
+  animation: fadeUp 2s ease-in-out forwards, fade linear;
+  animation-timeline: view();
+  /* animation: fadeUp ease-in-out forwards;
+  animation-timeline: view(); */
+}
+
+.project-container-2,
+.project-container-3 {
+  animation: fade linear;
+  animation-timeline: view();
+}
+
+.project-img-container,
+.project-links-container {
+  position: relative;
+  overflow: hidden;
+  justify-content: end;
+}
+
+.project-container-2 .project-img-container {
+  justify-content: start;
+}
+
+.link1 {
+  font-size: 5vw;
+  display: flex;
+  justify-content: end;
+}
+
+.project-links-container {
+  display: flex;
+  gap: 2vw;
+}
+
+.project-links-container a,
+.project-links-container form {
+  display: flex;
+  justify-content: start;
+}
+
+.project-links-container a {
+  text-decoration: none;
+  position: relative;
+  color: var(--clr-white); /* Set the desired text color */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+  font-family: "Akira Expanded", sans-serif;
+  font-size: 4vw;
+}
+
+.project-links-container a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.2vw; /* Set the desired underline height */
+  bottom: 0;
+  left: 0;
+  background-color: var(--clr-neon-green); /* Set the desired underline color */
+  transform: scaleX(0); /* Initial state: invisible */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease; /* Animation duration and easing */
+}
+
+.project-links-container a:hover {
+  color: var(--clr-neon-green); /* Set the desired text color on hover */
+}
+
+.project-links-container a:hover::before {
+  transform: scaleX(1); /* Full width on hover */
+  transform-origin: bottom left;
+}
+
+.project-img-container {
+  width: 40vw;
+}
+
+.project-img-container .project-img {
+  width: 100%;
+  display: block;
+}
+
+.arrow-container-left,
+.arrow-container-right {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-container-left a,
+.arrow-container-right a {
+  text-decoration: none; /* Remove the default underline for the link */
+  display: flex;
+  align-items: center;
+}
+
+.arrow-container-left a {
+  display: flex;
+  justify-content: start;
+}
+
+.arrow-container-right a {
+  display: flex;
+  justify-content: end;
+}
+
+.arrow-container-left span,
+.arrow-container-right span {
+}
+
+.arrow-container-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-container-left a,
+.arrow-container-right a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.arrow-container-left a:after,
+.arrow-container-right a:after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+
+  background-color: var(--clr-neon-green);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.arrow-container-left a:after {
+  left: 0;
+}
+
+.arrow-container-right a:after {
+  left: 7.4vw;
+}
+
+.arrow-container-left a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.arrow-container-right a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom right;
+}
+
+.arrow-container img {
+  width: 5vw;
 }
 
 .data-container {
@@ -477,12 +688,6 @@ input:valid {
   align-items: center;
 }
 
-.one-data {
-  font-weight: 300;
-  font-size: 1.5em;
-  color: var(--clr-light-purple);
-}
-
 .border-bottom {
   content: "";
   border: 0.5px solid var(--clr-white);
@@ -491,8 +696,12 @@ input:valid {
 
 /* Contact page */
 
-.contacts {
-  gap: 1rem;
+/* .contacts {
+  gap: 0.5vw;
+} */
+
+.main-contact {
+  animation: fadeUp 2s ease-in-out forwards;
 }
 
 .contact-container,
@@ -511,15 +720,26 @@ input:valid {
 }
 
 .contact-container img {
-  width: 10%;
+  width: 15%;
 }
 
 .contact-container span {
-  font-size: 0.7em;
+  font-size: 1vw;
+}
+
+.contact-container a {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
 }
 
 .contact-section {
-  padding: 2rem 2rem;
+  padding: 4vw;
   justify-content: space-between;
 }
 
@@ -728,4 +948,61 @@ input:valid {
     display: flex;
     gap: 5vw;
   }
+}
+
+/* Contact form */
+
+.contact-form {
+  display: flex;
+  justify-content: start;
+}
+
+.contact-form input {
+  border: none;
+  border-bottom: 1px solid var(--clr-neon-green);
+  background: transparent;
+  color: var(--clr-neon-green);
+  padding: 1vw;
+}
+
+.contact-form textarea {
+  border: 1px solid var(--clr-neon-green);
+  background: transparent;
+  padding: 1vw;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(5, 255, 159, 0.5);
+}
+
+.contact-form h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  color: var(--clr-neon-green);
+  text-transform: uppercase;
+  font-size: 2vw;
+  letter-spacing: 0.01vw;
+}
+
+.contact-container span {
+  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
+  font-weight: 100;
+  font-size: 0.7rem;
+}
+
+#submitContact {
+  border: 1px solid var(--clr-neon-green);
+  text-transform: uppercase;
+  font-weight: 800;
+  background-color: var(--clr-neon-green);
+  color: var(--clr-black);
+  padding: 0.5rem;
+  transition: 0.2s;
+}
+
+#submitContact:hover {
+  border: 1px solid var(--clr-neon-green);
+  background-color: var(--clr-black);
+  color: var(--clr-neon-green);
 }

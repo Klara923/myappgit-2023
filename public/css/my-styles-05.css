@@ -7,7 +7,7 @@
   font-family: "Hiragino Kakugo StdN W8";
   src: url("path-to-your-font/HiraginoKakugoStdN-W8.woff2") format("woff2"),
     url("path-to-your-font/HiraginoKakugoStdN-W8.woff") format("woff");
-  /* Add more formats if necessary, and make sure to provide the correct paths to your font files */
+
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
   font-family: "Hiragino Kakugo StdN W9";
   src: url("path-to-your-font/HiraginoKakugoStdN-W9.woff2") format("woff2"),
     url("path-to-your-font/HiraginoKakugoStdN-W9.woff") format("woff");
-  font-weight: bold; /* This is the bold (W9) weight */
+  font-weight: bold;
   font-style: normal;
 }
 

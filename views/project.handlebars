@@ -1,4 +1,4 @@
-<main id="main">
+{{!-- <main id="main" class="project-main">
   <section class="project-section columns col-12">
     {{#each project}}
       {{#if hasDatabaseError}}
@@ -6,6 +6,7 @@
           /></div>
         {{theError}}
       {{else}}
+
         <div class="info-container columns col-12">
           <div class="title-container column col-12"><h1>{{pOverlayName}}</h1>
             <div class="border-bottom column col-12"></div>
@@ -41,12 +42,235 @@
 
           </div>
 
-          <div class="column col-12">
-            {{pDesc}}
+        </div>
+
+        <section class="project-section-1 columns col-12">
+
+        <div class="project-container-1 columns col-12">
+
+          <div class="desc-container columns col-4">
+            <h2 class="column col-12">About</h2>
+            <p class="column col-12">{{pDesc}}</p>
+          </div>
+          <div class="project-img-container columns col-8">
+
+            <img class="project-img column col-12" src="/{{pURL}}" alt="" />
+          </div>
+        </div>
+        <div class="project-container-2 columns col-12">
+
+          <div class="project-img-container columns col-8">
+
+            <img class="project-img column col-12" src="/{{pURL}}" alt="" />
+          </div>
+
+          <div class="desc-container columns col-4">
+            <h2 class="column col-12">About</h2>
+            <p class="column col-12">{{pDesc}}</p>
           </div>
 
         </div>
 
+        <div class="project-container-3 columns col-12">
+
+          <div class="desc-container columns col-4">
+            <h2 class="column col-12">About</h2>
+            <p class="column col-12">{{pDesc}}
+              
+            </p>
+          </div>
+
+          <div class="project-links-container columns col-4">
+
+            <a class="link1 column col-12" href="{{pLink1}}">{{pLink1Text}}</a>
+            <a class="link1 column col-12" href="{{pLink2}}">{{pLink2Text}}</a>
+          </div>
+
+        </div>
+
+        <div class="arrows-container columns col-12">
+          {{#if pPreviousPageBoolean}}
+            <div class="arrow-container-left columns col-6">
+              <a href="/projects/{{pPreviousPageURL}}">
+
+                <img
+                  class="column col-2"
+                  src="/img/arrow-left-s-line.svg"
+                  alt=""
+                />
+                <span class="column col-4">{{pPreviousProjectName}}</span>
+              </a>
+            </div>
+          {{/if}}
+          {{#if pNextPageBoolean}}
+            <div class="arrow-container-right columns col-6">
+              <a href="/projects/{{pNextPageURL}}">
+
+                <span class="column col-4">{{pNextProjectName}}</span>
+                <img
+                  class="column col-2"
+                  src="/img/arrow-right-s-line.svg"
+                  alt=""
+                />
+
+              </a>
+            </div>
+          {{/if}}
+        </div>
+
+      {{/if}}
+    {{/each}}
+    </section>
+  </section>
+</main> --}}
+
+<main id="main" class="project-main">
+  <section class="project-section columns col-12">
+    {{#each project}}
+      {{#if hasDatabaseError}}
+        <div class="colum col-12">
+          Sorry, there was a problem with the database:<br />
+        </div>
+        {{theError}}
+      {{else}}
+        <div class="info-container columns col-12">
+          <div class="title-container column col-12">
+            <h1>{{pOverlayName}}</h1>
+            <div class="section-line column col-12"></div>
+          </div>
+          <img class="project-img column col-5" src="/{{pURL}}" alt="" />
+          <div class="columns col-6 data-container">
+            <div class="data-row-container columns col-12">
+              <h3 class="column col-6">Author: </h3>
+              <h3 class="one-data column col-6">{{pAuthor}}</h3>
+              <div class="border-bottom column col-12"></div>
+            </div>
+            <div class="data-row-container columns col-12">
+              <h3 class="column col-6">Date: </h3>
+              <h3 class="one-data column col-6">{{pDate}}</h3>
+              <div class="border-bottom column col-12"></div>
+            </div>
+            <div class="data-row-container columns col-12">
+              <h3 class="column col-6">
+                {{#if pProgramming}}Languages: {{else}}Tools: {{/if}}
+              </h3>
+              <h3 class="one-data column col-6">{{pTool}}</h3>
+              <div class="border-bottom column col-12"></div>
+            </div>
+            <div class="data-row-container columns col-12">
+              <h3 class="column col-6">Type: </h3>
+              <h3 class="one-data column col-6">{{pType}}</h3>
+              <div class="border-bottom column col-12"></div>
+            </div>
+          </div>
+        </div>
+        <section class="project-section-1 columns col-12">
+          <div class="project-container-1 columns col-12">
+            <div class="desc-container columns col-4">
+              <h2 class="column col-12">About</h2>
+              <p class="column col-12">{{pDesc}}</p>
+            </div>
+            <div class="project-img-container columns col-8">
+              <img class="project-img column col-12" src="/{{pURL1}}" alt="" />
+            </div>
+          </div>
+          <div class="project-container-2 columns col-12">
+            <div class="project-img-container columns col-8">
+
+              {{#if pVideo}}
+                <video class="project-img column col-12" controls>
+                  <source
+                    class="project-img column col-12"
+                    src="/{{pURL2}}"
+                    type="video/mp4"
+                  />
+
+                </video>{{else}}
+                <div class="project-img-container columns col-8">
+                  <img
+                    class="project-img column col-12"
+                    src="/{{pURL2}}"
+                    alt=""
+                  />
+                </div>
+              {{/if}}
+
+            </div>
+            <div class="desc-container columns col-4">
+              <h2 class="column col-12">Working Process</h2>
+              <p class="column col-12">{{pProgress}}</p>
+            </div>
+          </div>
+          <div class="project-container-3 columns col-12">
+            <div class="desc-container columns col-4">
+              <h2 class="column col-12">Challenges and Solutions</h2>
+              <p class="column col-12">{{pLearned}}</p>
+            </div>
+            <div class="project-links-container columns col-6">
+              {{#if pLink1}}
+                <a
+                  target="”_blank”"
+                  class="link1 column col-12"
+                  href="{{pLink1}}"
+                >{{pLink1Text}}</a>
+                {{#if pLink2}}
+                  <a
+                    target="”_blank”"
+                    class="link1 column col-12"
+                    href="{{pLink2}}"
+                  >{{pLink2Text}}</a>
+
+                {{else}}
+                  {{#if pDownload}}
+                    <form action="/download-file" class="column col-6">
+                      <button
+                        type="submit"
+                        class="column col-12 download-button"
+                      >Download PDF</button>
+                    </form>
+                  {{else}}
+
+                  {{/if}}
+                {{/if}}
+              {{/if}}
+              {{#if pDownload2}}
+                <form action="/download2-file" class="column col-12">
+                  <button
+                    type="submit"
+                    class="column col-12 download-button"
+                  >Download PDF</button>
+                </form>
+              {{/if}}
+            </div>
+          </div>
+          <div class="arrows-container columns col-12">
+            {{#if pPreviousPageBoolean}}
+              <div class="arrow-container-left columns col-6">
+                <a href="/projects/{{pPreviousPageURL}}">
+                  <img
+                    class="column col-2"
+                    src="/img/arrow-left-s-line.svg"
+                    alt=""
+                  />
+                  <span class="column col-4">{{pPreviousProjectName}}</span>
+                </a>
+              </div>
+
+            {{/if}}
+            {{#if pNextPageBoolean}}
+              <div class="arrow-container-right columns col-6">
+                <a href="/projects/{{pNextPageURL}}">
+                  <span class="column col-4">{{pNextProjectName}}</span>
+                  <img
+                    class="column col-2"
+                    src="/img/arrow-right-s-line.svg"
+                    alt=""
+                  />
+                </a>
+              </div>
+            {{/if}}
+          </div>
+        </section>
       {{/if}}
     {{/each}}
   </section>
