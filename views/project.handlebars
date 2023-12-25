@@ -133,62 +133,72 @@
         </div>
         {{theError}}
       {{else}}
-        <div class="info-container columns col-12">
-          <div class="title-container column col-12">
+        <div class="info-container columns col-12 col-md-12">
+          <div class="title-container column col-12 col-md-12">
             <h1>{{pOverlayName}}</h1>
-            <div class="section-line column col-12"></div>
+            <div class="section-line column col-12 col-md-12"></div>
           </div>
-          <img class="project-img column col-5" src="/{{pURL}}" alt="" />
-          <div class="columns col-6 data-container">
-            <div class="data-row-container columns col-12">
-              <h3 class="column col-6">Author: </h3>
-              <h3 class="one-data column col-6">{{pAuthor}}</h3>
-              <div class="border-bottom column col-12"></div>
+          <img
+            class="project-img column col-5 col-md-12"
+            src="/{{pURL}}"
+            alt=""
+          />
+          <div class="columns col-6 col-md-12 data-container">
+            <div class="data-row-container columns col-12 col-md-12">
+              <h3 class="column col-6 col-md-6">Author: </h3>
+              <h3 class="one-data column col-6 col-md-6">{{pAuthor}}</h3>
+              <div class="border-bottom column col-12 col-md-12"></div>
             </div>
-            <div class="data-row-container columns col-12">
-              <h3 class="column col-6">Date: </h3>
-              <h3 class="one-data column col-6">{{pDate}}</h3>
-              <div class="border-bottom column col-12"></div>
+            <div class="data-row-container columns col-12 col-md-12">
+              <h3 class="column col-6 col-md-6">Date: </h3>
+              <h3 class="one-data column col-6 col-md-6">{{pDate}}</h3>
+              <div class="border-bottom column col-12 col-md-12"></div>
             </div>
-            <div class="data-row-container columns col-12">
-              <h3 class="column col-6">
+            <div class="data-row-container columns col-12 col-md-12">
+              <h3 class="column col-6 col-md-6">
                 {{#if pProgramming}}Languages: {{else}}Tools: {{/if}}
               </h3>
-              <h3 class="one-data column col-6">{{pTool}}</h3>
-              <div class="border-bottom column col-12"></div>
+              <h3 class="one-data column col-6 col-md-6">{{pTool}}</h3>
+              <div class="border-bottom column col-12 col-md-12"></div>
             </div>
-            <div class="data-row-container columns col-12">
-              <h3 class="column col-6">Type: </h3>
-              <h3 class="one-data column col-6">{{pType}}</h3>
-              <div class="border-bottom column col-12"></div>
+            <div class="data-row-container columns col-12 col-md-12">
+              <h3 class="column col-6 col-md-6">Type: </h3>
+              <h3 class="one-data column col-6 col-md-6">{{pType}}</h3>
+              <div class="border-bottom column col-12 col-md-12"></div>
             </div>
           </div>
         </div>
-        <section class="project-section-1 columns col-12">
-          <div class="project-container-1 columns col-12">
-            <div class="desc-container columns col-4">
-              <h2 class="column col-12">About</h2>
-              <p class="column col-12">{{pDesc}}</p>
+        <section class="project-section-1 columns col-12 col-md-12">
+          <div class="project-container-1 columns col-12 col-md-12">
+            <div class="desc-container columns col-4 col-md-12">
+              <h2 class="column col-12 col-md-12">About</h2>
+              <p class="column col-12 col-md-12">{{pDesc}}</p>
             </div>
-            <div class="project-img-container columns col-8">
-              <img class="project-img column col-12" src="/{{pURL1}}" alt="" />
+            <div class="project-img-container columns col-8 col-md-12">
+              <img
+                class="project-img column col-12 col-md-12"
+                src="/{{pURL1}}"
+                alt=""
+              />
             </div>
           </div>
-          <div class="project-container-2 columns col-12">
-            <div class="project-img-container columns col-8">
+          <div
+            class="working-process project-container-2 columns col-12 col-md-12"
+          >
+            <div class="project-img-container columns col-8 col-md-12">
 
               {{#if pVideo}}
-                <video class="project-img column col-12" controls>
+                <video class="project-img column col-12 col-md-12" controls>
                   <source
-                    class="project-img column col-12"
+                    class="project-img column col-12 col-md-12"
                     src="/{{pURL2}}"
                     type="video/mp4"
                   />
 
                 </video>{{else}}
-                <div class="project-img-container columns col-8">
+                <div class="project-img-container columns col-8 col-md-12">
                   <img
-                    class="project-img column col-12"
+                    class="project-img column col-12 col-md-12"
                     src="/{{pURL2}}"
                     alt=""
                   />
@@ -196,36 +206,40 @@
               {{/if}}
 
             </div>
-            <div class="desc-container columns col-4">
-              <h2 class="column col-12">Working Process</h2>
-              <p class="column col-12">{{pProgress}}</p>
+            <div class="desc-container columns col-4 col-md-12">
+              <h2 class="column col-12 col-md-12">Working Process</h2>
+              <p class="column col-12 col-md-12">{{pProgress}}</p>
             </div>
+
           </div>
-          <div class="project-container-3 columns col-12">
-            <div class="desc-container columns col-4">
-              <h2 class="column col-12">Challenges and Solutions</h2>
-              <p class="column col-12">{{pLearned}}</p>
+          <div class="project-container-3 columns col-12 col-md-12">
+            <div class="desc-container columns col-4 col-md-12">
+              <h2 class="column col-12 col-md-12">Challenges and Solutions</h2>
+              <p class="column col-12 col-md-12">{{pLearned}}</p>
             </div>
-            <div class="project-links-container columns col-6">
+            <div class="project-links-container columns col-6 col-md-12">
               {{#if pLink1}}
                 <a
                   target="”_blank”"
-                  class="link1 column col-12"
+                  class="link1 column col-12 col-md-12"
                   href="{{pLink1}}"
                 >{{pLink1Text}}</a>
                 {{#if pLink2}}
                   <a
                     target="”_blank”"
-                    class="link1 column col-12"
+                    class="link1 column col-12 col-md-12"
                     href="{{pLink2}}"
                   >{{pLink2Text}}</a>
 
                 {{else}}
                   {{#if pDownload}}
-                    <form action="/download-file" class="column col-6">
+                    <form
+                      action="/download-file"
+                      class="column col-6 col-md-12"
+                    >
                       <button
                         type="submit"
-                        class="column col-12 download-button"
+                        class="column col-12 col-md-12 download-button"
                       >Download PDF</button>
                     </form>
                   {{else}}
@@ -234,38 +248,37 @@
                 {{/if}}
               {{/if}}
               {{#if pDownload2}}
-                <form action="/download2-file" class="column col-12">
+                <form action="/download2-file" class="column col-12 col-md-12">
                   <button
                     type="submit"
-                    class="column col-12 download-button"
+                    class="column col-12 col-md-12 download-button"
                   >Download PDF</button>
                 </form>
               {{/if}}
             </div>
           </div>
-          <div class="arrows-container columns col-12">
+          <div class="arrows-container columns col-12 col-md-12">
             {{#if pPreviousPageBoolean}}
-              <div class="arrow-container-left columns col-6">
-                <a href="/projects/{{pPreviousPageURL}}">
-                  <img
-                    class="column col-2"
-                    src="/img/arrow-left-s-line.svg"
-                    alt=""
-                  />
-                  <span class="column col-4">{{pPreviousProjectName}}</span>
+              <div class="arrow-container-left columns col-6 col-md-12">
+                <a
+                  href="/projects/{{pPreviousPageURL}}"
+                  class="arrow-container"
+                >
+                  <span class="arrow-img column col-1 col-md-1">&lt;</span>
+                  <span
+                    class="column col-10 col-md-10"
+                  >{{pPreviousProjectName}}</span>
                 </a>
               </div>
 
             {{/if}}
             {{#if pNextPageBoolean}}
-              <div class="arrow-container-right columns col-6">
-                <a href="/projects/{{pNextPageURL}}">
-                  <span class="column col-4">{{pNextProjectName}}</span>
-                  <img
-                    class="column col-2"
-                    src="/img/arrow-right-s-line.svg"
-                    alt=""
-                  />
+              <div class="arrow-container-right columns col-6 col-md-12">
+                <a href="{{pNextPageURL}}" class="arrow-container">
+                  <span
+                    class="column col-10 col-md-10"
+                  >{{pNextProjectName}}</span>
+                  <span class="arrow-img column col-1 col-md-1">&gt;</span>
                 </a>
               </div>
             {{/if}}

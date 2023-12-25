@@ -20,6 +20,12 @@
 
 /* font-family: 'Akira Expanded', sans-serif; */
 
+.cols,
+.columns {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .pixelcat-container {
   display: flex;
   justify-content: center;
@@ -71,6 +77,15 @@
   }
 }
 
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 .main-home {
   padding: 0;
   padding-bottom: 5vh;
@@ -89,44 +104,35 @@
   margin: 0;
   border-bottom: 0.5px solid var(--clr-neon-green);
   border-top: 0.5px solid var(--clr-neon-green);
-}
-
-.text-items {
-  display: flex;
-  animation: slide 40s linear infinite;
-  justify-content: center;
-  align-items: center;
   white-space: nowrap;
 }
 
-.text-item {
+.text-items {
+  display: inline-block;
+  animation: 50s slide infinite linear;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw 0;
+}
+
+.text-item,
+.star {
   font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
+  font-weight: 100;
   display: flex;
-  min-width: 20vw;
-  max-width: 1000vw;
+  /* min-width: 20vw;
+  max-width: 1000vw; */
   box-sizing: border-box;
-  padding: 1vw;
   text-align: center;
   color: var(--clr-neon-green);
   font-size: 4vw;
+  letter-spacing: 0.2vw;
+  align-items: center;
 }
 
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-50%);
-  }
-  50% {
-    transform: translateX(-100%);
-  }
-  75% {
-    transform: translateX(-150%);
-  }
-  100% {
-    transform: translateX(50%);
-  }
+.star {
+  font-size: 3vw;
+  margin: 0 2vw;
 }
 
 *,
@@ -286,6 +292,17 @@ a:hover {
   align-items: center;
 }
 
+.main-title-container {
+  padding: 0;
+  animation: fadeUp 2s ease-in-out forwards;
+}
+
+.main-title {
+  font-family: "Akira Expanded", sans-serif;
+  font-size: 4vw;
+  padding: 0 3vw;
+}
+
 /* @keyframes slide {
   from {
     transform: translateX(0);
@@ -385,8 +402,9 @@ input:valid {
 }
 
 .section-title {
-  font-weight: 200;
+  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
   margin-left: 2rem;
+  padding: 0;
 }
 
 .thumbnail-image-container {
@@ -568,7 +586,7 @@ input:valid {
   color: var(--clr-white); /* Set the desired text color */
   transition: color 0.3s ease; /* Smooth transition for color change */
   font-family: "Akira Expanded", sans-serif;
-  font-size: 4vw;
+  font-size: 3.8vw;
 }
 
 .project-links-container a::before {
@@ -588,11 +606,6 @@ input:valid {
   color: var(--clr-neon-green); /* Set the desired text color on hover */
 }
 
-.project-links-container a:hover::before {
-  transform: scaleX(1); /* Full width on hover */
-  transform-origin: bottom left;
-}
-
 .project-img-container {
   width: 40vw;
 }
@@ -602,7 +615,24 @@ input:valid {
   display: block;
 }
 
-.arrow-container-left,
+.download-button {
+  border: 1px solid var(--clr-neon-green);
+  background: var(--clr-black);
+  color: var(--clr-neon-green);
+  /* margin-top: 2rem; */
+  padding: 1vw;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-family: "Akira Expanded", sans-serif;
+  transition: 0.5s;
+}
+
+.download-button:hover {
+  background: var(--clr-neon-green);
+  color: var(--clr-black);
+}
+
+/* .arrow-container-left,
 .arrow-container-right {
   display: flex;
   align-items: center;
@@ -610,7 +640,7 @@ input:valid {
 
 .arrow-container-left a,
 .arrow-container-right a {
-  text-decoration: none; /* Remove the default underline for the link */
+  text-decoration: none; 
   display: flex;
   align-items: center;
 }
@@ -625,11 +655,13 @@ input:valid {
   justify-content: end;
 }
 
-.arrow-container-left span,
 .arrow-container-right span {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.arrow-container-left {
+.arrow-container-left,
+.arrow-container-right {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -675,8 +707,37 @@ input:valid {
   transform-origin: bottom right;
 }
 
-.arrow-container img {
-  width: 5vw;
+.arrow-container svg {
+  width: 5.5vw;
+  fill: var(--clr-white);
+} */
+
+.arrows-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow-container-left,
+.arrow-container-right {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: transparent;
+}
+
+.arrow-container-right {
+  justify-content: end;
+}
+
+.arrow-container {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-container span {
+  font-family: "Akira Expanded", sans-serif;
+  font-size: 1vw;
 }
 
 .data-container {
@@ -873,12 +934,7 @@ input:valid {
     background: var(--clr-black);
   }
   .x-icon {
-    /* position: absolute;
-    margin-top: 0.5rem;
-    font-size: 1.2rem; */
-    /* margin: 0; */
     padding: 0;
-
     display: flex;
     align-self: flex-start;
     margin-top: 8vw;
@@ -889,11 +945,11 @@ input:valid {
   }
 
   nav.logged-in {
-    /* padding: 5vw 2.5vw; */
     margin-top: -2rem;
     background: var(--clr-black);
     z-index: 2;
     width: 100vw;
+    transition: 0.2s ease-in-out;
   }
 
   nav.closed {
@@ -905,10 +961,6 @@ input:valid {
     position: fixed;
   }
   .buttons-pages {
-    /* display: flex; */
-    padding: 1rem;
-    /* justify-content: flex-start;
-    align-items: flex-start; */
     gap: 1rem;
   }
   .buttons-container {
@@ -920,13 +972,6 @@ input:valid {
   .button-page,
   .button {
     display: flex;
-    /* text-align: center;
-    justify-content: flex-start;
-    align-items: center;
-    background: none;
-    border: none;
-    padding: 0.3rem 1.4rem; */
-
     max-width: 2vw;
     justify-content: flex-start;
     font-size: 4vw;
@@ -940,6 +985,16 @@ input:valid {
     font-size: 3em;
   }
 
+  /* Home page */
+
+  #pixelcat {
+    font-size: 14vw;
+  }
+
+  #pixelcat-japanese {
+    font-size: 8vw;
+  }
+
   .main-home {
     min-height: 70vh;
   }
@@ -947,6 +1002,142 @@ input:valid {
   .pixelcat-container {
     display: flex;
     gap: 5vw;
+  }
+
+  .slider {
+    height: 15vw;
+  }
+  /*   
+  .text-items {
+    display: inline-block;
+    animation: 50s slide infinite linear;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw 0;
+  } */
+
+  .text-item,
+  .star {
+    font-size: 8.5vw;
+  }
+
+  .star {
+    font-size: 6vw;
+    margin: 0 2vw;
+  }
+
+  /* Headlines and headers */
+
+  .main-title {
+    font-family: "Akira Expanded", sans-serif;
+    font-size: 12vw;
+    padding: 0 5vw;
+  }
+
+  .section-title {
+    font-size: 8vw;
+  }
+
+  /* Projects page responsive */
+
+  .text {
+    font-size: 7vw;
+  }
+
+  .programming-section h1,
+  .design-section h1 {
+    margin-left: 1vw;
+  }
+
+  .programming-section,
+  .design-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+  }
+
+  .thumbnail-image-container img {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  /* Project page */
+
+  .working-process {
+    flex-direction: column-reverse;
+  }
+
+  .project-section-1 {
+    margin-top: 40vw;
+    gap: 5vw;
+  }
+
+  .project-img-container {
+    width: 80vw;
+  }
+
+  .project-img-container .project-img {
+    width: 100%;
+    display: block;
+  }
+
+  /* .link1 {
+    font-size: 5vw;
+    display: flex;
+    justify-content: end;
+  }
+  
+  .project-links-container {
+    display: flex;
+    gap: 2vw;
+  }
+  
+  .project-links-container a,
+  .project-links-container form {
+    display: flex;
+    justify-content: start;
+  } */
+
+  .project-links-container a {
+    font-size: 7vw;
+  }
+
+  .arrows-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+  }
+
+  .arrow-container-left,
+  .arrow-container-right {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .arrow-container span {
+    font-size: 3vw;
+  }
+
+  /* Contact page */
+
+  .contact-section {
+    gap: 15vw;
+  }
+
+  .contact-container a {
+    justify-content: space-between;
+  }
+
+  .contacts {
+    gap: 5vw;
+  }
+
+  .contact-form h2 {
+    font-size: 6vw !important;
   }
 }
 

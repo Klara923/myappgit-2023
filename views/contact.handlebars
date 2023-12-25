@@ -38,65 +38,65 @@
    
 
    <main id="main" class="column col-12 main-contact">
-  <div class="column col-12">
-    <h1 class="section-title">Contact</h1>
-    <div class="section-line columns col-12"></div>
-  </div>
+   <div class="columns col-12 col-md-12 main-title-container">
+    <h1 class="main-title column col-12 col-md-12">Contact</h1>
+    <div class="section-line column col-12 col-md-12"></div>
+    </div>
   {{#if hasDatabaseError}}
     <div>Sorry, there was a problem: <br />
       {{theError}}
     </div>
   {{else}}
-    <section class="contact-section columns col-12">
+    <section class="contact-section columns col-12 col-md-12">
       <div class="contacts columns col-6 col-md-12">
 
 
     
-          <div class="contact-container columns col-12">
-<a href="mailto:klara.swiecicka@hotmail.com" class="column col-12">
-            <img class="column col-6" src="img/mail-fill.svg" alt="" />
-            <span class="column col-6">klara.swiecicka@hotmail.com</span>
+          <div class="contact-container columns col-12 col-md-12">
+<a href="mailto:klara.swiecicka@hotmail.com" class="column col-12 col-md-12">
+            <img class="column col-6 col-md-6" src="img/mail-fill.svg" alt="" />
+            <span class="column col-6 col-md-6">klara.swiecicka@hotmail.com</span>
             </a>
           </div>
 
-          <div class="contact-container columns col-12">
+          <div class="contact-container columns col-12 col-md-12">
 <a href="tel:+460760578464" class="column col-12">
-            <img class="column col-6" src="img/phone-fill.svg" alt="" />
-            <span class="column col-6">+460760578464</span>
+            <img class="column col-6 col-md-6" src="img/phone-fill.svg" alt="" />
+            <span class="column col-6 col-md-6">+460760578464</span>
             </a>
           </div>
 
-            <div class="contact-container columns col-12">
-<a href="#" class="column col-12 disabled-link">
-            <img class="column col-6" src="img/map-pin-fill.svg" alt="" />
-            <span class="column col-6">Jönköping, Sweden</span>
+            <div class="contact-container columns col-12 col-md-12">
+<a href="#" class="column col-12 col-md-12 disabled-link">
+            <img class="column col-6 col-md-6" src="img/map-pin-fill.svg" alt="" />
+            <span class="column col-6 col-md-6">Jönköping, Sweden</span>
             </a>
           </div>
 
-                   <div class="contact-container columns col-12">
-<a href="www.linkedin.com/in/klara-swiecicka-824262275" class="column col-12">
-            <img class="column col-6" src="img/linkedin-box-fill.svg" alt="" />
-            <span class="column col-6">Klara Swiecicka</span>
+                   <div class="contact-container columns col-12 col-md-12">
+<a href="www.linkedin.com/in/klara-swiecicka-824262275" class="column col-12 col-md-12">
+            <img class="column col-6 col-md-6" src="img/linkedin-box-fill.svg" alt="" />
+            <span class="column col-6 col-md-6">Klara Swiecicka</span>
             </a>
           </div>
 
-                          <div class="contact-container columns col-12">
-<a href="https://github.com/Klara923" class="column col-12">
-            <img class="column col-6" src="img/github-fill.svg" alt="" />
-            <span class="column col-6">Klara923</span>
+                          <div class="contact-container columns col-12 col-md-12">
+<a href="https://github.com/Klara923" class="column col-12 col-md-12">
+            <img class="column col-6 col-md-6" src="img/github-fill.svg" alt="" />
+            <span class="column col-6 col-md-6">Klara923</span>
             </a>
           </div>
 
 
       </div>
      
-          <form class="contact-form columns col-6" method="POST">
-      <h2 class="column col-12">Send me a message!</h2>
-      <input class="column col-12" type="text" id="formName" placeholder="Full name" autocomplete="formName">
-      <input class="column col-12" type="email" id="formEmail" placeholder="Email" autocomplete="formEmail">
-      <input class="column col-12" type="test" id="formSubject" placeholder="Subject" >
-      <textarea class="column col-12"  id="formMessage" placeholder="Message" cols="30" rows="10"></textarea>
-      <input id="submitContact" class="column col-6 submitContact" type="submit" value="Send Message">
+          <form class="contact-form columns col-6 col-md-12" method="POST">
+      <h2 class="column col-12 col-md-12 contact-form-h2">Send me a message!</h2>
+      <input class="column col-12 col-md-12" type="text" id="formName" placeholder="Full name" autocomplete="formName">
+      <input class="column col-12 col-md-12" type="email" id="formEmail" placeholder="Email" autocomplete="formEmail">
+      <input class="column col-12 col-md-12" type="test" id="formSubject" placeholder="Subject" >
+      <textarea class="column col-12 col-md-12"  id="formMessage" placeholder="Message" cols="30" rows="10"></textarea>
+      <input id="submitContact" class="column col-6 col-md-12 submitContact" type="submit" value="Send Message">
     </form>
   </div>
    {{!-- {{#if loggedIn}}

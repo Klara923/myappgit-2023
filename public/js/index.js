@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const barIcon = document.querySelector(".bar-icon");
+  // const barIcon = document.querySelector(".bar-icon");
+  const barIcon = document.querySelector(".fa-bars");
   const navMenu = document.querySelector(".nav-menu");
   const xIcon = document.querySelector(".x-icon");
   const contactForm = document.querySelector(".contact-form");

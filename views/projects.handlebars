@@ -2,11 +2,14 @@
  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
 <link rel="stylesheet" type="text/css" href="/css/main.css">
 <main id="main" class="column col-12 main-projects">
+    <div class="columns col-12 main-title-container">
+    <h1 class="main-title column col-12">Projects</h1>
+    <div class="section-line column col-12"></div>
+    </div>
   {{! Programming section }}
   <section class="programming-section columns col-12 col-md-12">
     <div class="column col-12">
-    <h1 class="section-title">Programming</h1>
-    <div class="section-line column col-12"></div>
+    <h1 class="section-title column col-12">Programming</h1>
     </div>
     {{#if hasDatabaseError}}
    <div>Sorry, there was a problem with the database:<br />
@@ -17,7 +20,7 @@
       {{#each projects}}
         {{#if pProgramming}}
           <div
-            class="thumbnail-container  column col-5 col-md-8"
+            class="thumbnail-container column col-5 col-md-12"
             id="thumbnail-container"
           >
 {{#if ../loggedIn}}
@@ -37,7 +40,7 @@
     {{/if}}
     {{/if}}
           <a href="/projects/{{pId}}">
-            <div class="column col-12 col-md-12 thumbnail-image-container">
+            <div class="columns col-12 col-md-12 thumbnail-image-container">
               <img class="column col-12 col-md-12" src="{{pURL}}" alt="" />
               <div class="overlay column col-12 col-md-12">
                 <div class="text">{{pOverlayName}}</div>
@@ -60,16 +63,16 @@
     </div>
   </section>
   {{! Design desction }}
-  <section class="design-section columns col-12">
-    <div class="column col-12">
+  <section class="design-section columns col-12 col-md-12">
+    <div class="column col-12 col-md-12">
     <h1 class="section-title">Design</h1>
-    <div class="section-line column col-12"></div>
+    <div class="section-line column col-12 col-md-12"></div>
     </div>
-    <div class="columns col-12 design-container">
+    <div class="columns col-12 col-md-12 design-container">
       {{#each projects}}
         {{#if pDesign}}
           <div
-            class="thumbnail-container column col-5 col-md-8"
+            class="thumbnail-container column col-5 col-md-12"
             id="thumbnail-container"
           >
 {{#if ../loggedIn}}
@@ -89,9 +92,9 @@
     {{/if}}
     {{/if}}
           <a href="/projects/{{pId}}">
-            <div class="column col-12 thumbnail-image-container">
-              <img class="column col-12" src="{{pURL}}" alt="" />
-              <div class="overlay column col-12">
+            <div class="columns col-12 col-md-12 thumbnail-image-container">
+              <img class="column col-12 col-md-12" src="{{pURL}}" alt="" />
+              <div class="overlay column col-12 col-md-12">
                 <div class="text">{{pOverlayName}}</div>
               </div>
             </div>

@@ -20,6 +20,8 @@
   font-style: normal;
 }
 
+/* font-family: 'Akira Expanded', sans-serif; */
+
 *,
 *::before,
 *::after {
@@ -49,6 +51,7 @@ body {
   font-family: sans-serif;
   overflow-x: hidden;
   font-family: "Inter", sans-serif;
+  overflow-x: hidden;
 }
 
 li {
@@ -57,15 +60,15 @@ li {
 
 .photo-container {
   position: absolute;
-  width: 30%;
+  width: 5vw;
   height: auto;
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
 }
 
 .photo-container img {
-  width: 100%;
-  max-width: 25rem;
-  min-width: 20rem;
+  width: 30vw;
+  /* max-width: 5vw;
+  min-width: 20vw; */
   position: relative;
   z-index: -10;
   border-radius: 30%;
@@ -193,13 +196,14 @@ li {
 .edu,
 .work-exp,
 .oth-exp {
-  margin-bottom: 1rem;
+  margin-bottom: 4vw;
 }
 
 .edu h2,
 .work-exp h2,
 .oth-exp h2 {
-  margin-left: 1rem;
+  font-size: 2vw;
+  /* border-bottom: 2vw; */
 }
 
 .left-column {
@@ -210,7 +214,9 @@ li {
 }
 
 .left-column-container {
-  gap: 5rem;
+  gap: 5vh;
+  display: flex;
+  justify-content: center;
 }
 
 .languages-container.skills-container {
@@ -225,19 +231,23 @@ li {
   gap: 1rem;
 }
 
+.oth-skills {
+  gap: 0;
+}
+
 .dots-container {
   gap: 0.3rem;
 }
 
 .dot {
   content: "";
-  border: 1px solid var(--clr-purple);
-  width: 1.2rem;
-  height: 1.2rem;
+  border: 1px solid var(--clr-neon-green);
+  width: 2vw;
+  height: 2vw;
 }
 
 .filled {
-  background: var(--clr-purple);
+  background: var(--clr-neon-green);
 }
 
 .language {
@@ -249,14 +259,35 @@ h1 {
 }
 
 h2 {
-  font-size: 2em;
-  letter-spacing: 0.2rem;
+  font-size: 1vw;
+  font-family: "Akira Expanded", sans-serif;
 }
 
 .cv-container li,
 .cv-container p {
   font-weight: 300;
   font-size: 0.9em;
+}
+
+.skill {
+  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
+  font-weight: 100 !important;
+  font-size: 2vw !important;
+}
+
+.skill-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.skill-container img {
+  width: 8vw;
+}
+
+.skill-desc {
+  font-weight: 600 !important;
 }
 
 .social-media-list {
@@ -279,27 +310,95 @@ h2 {
 }
 
 @media only screen and (max-width: 768px) {
+  .edu h2,
+  .work-exp h2,
+  .oth-exp h2 {
+    font-size: 6vw;
+  }
+
+  .header-section {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
   .desc-container {
     margin-left: 0rem;
   }
 
   .photo-container {
     position: relative;
-    width: 30%;
+    width: 100%;
   }
 
   .photo-container img {
-    width: 100%;
-    max-width: 25rem;
-    min-width: 20rem;
-    position: relative;
-    z-index: -10;
-    border-radius: 30%;
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    width: 60vw;
   }
 
   .last-name {
-    font-size: 0.7em;
+    /* margin-left: -15vw; */
+    font-size: 8vw;
+    letter-spacing: 2vw;
+  }
+
+  .first-name {
+    margin-left: -15vw;
+
+    /* font-size: 6vw; */
+  }
+
+  .about-me-desc {
+    border: 1px solid yellow;
+    width: 75vw;
+  }
+
+  .left-column {
+    /* padding: 4rem 2rem;
+    margin-top: 2rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+  }
+
+  .left-column-container {
+    gap: 5vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dot {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .skill-container {
+    /* display: flex;
+    justify-content: start; */
+    gap: 1vw;
+  }
+
+  .skill-oneline {
+    gap: 6vw;
+  }
+
+  .skill-container img {
+    width: 35vw;
+  }
+
+  .skill-container p {
+    font-size: 4vw;
+  }
+
+  /* .skill-desc {
+    font-weight: 600 !important;
+  } */
+
+  .skill {
+    font-size: 7vw !important;
   }
 
   .contact-section {
