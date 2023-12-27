@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // const barIcon = document.querySelector(".bar-icon");
   const barIcon = document.querySelector(".fa-bars");
   const navMenu = document.querySelector(".nav-menu");
   const xIcon = document.querySelector(".x-icon");
@@ -32,8 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
       formMessage: formMessage.value,
     };
 
-    // console.log(formData);
-
     let xhr = new XMLHttpRequest();
     xhr.onerror = function () {
       console.error("An error occurred during the XMLHttpRequest.");
@@ -42,8 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function () {
       console.log(xhr.responseText);
-      if (xhr.responseText == "success") {
-        alert("Email sent");
+      if (xhr.responseText.includes("Email sent, thank you!")) {
+        alert("Success");
         formName.value = "";
         formEmail.value = "";
         formSubject.value = "";

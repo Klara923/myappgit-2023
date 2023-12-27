@@ -1,125 +1,101 @@
 <!-- Main -->
- <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
 <link rel="stylesheet" type="text/css" href="/css/main.css">
 <main id="main" class="column col-12 main-projects">
-    <div class="columns col-12 main-title-container">
+  <div class="columns col-12 main-title-container">
     <h1 class="main-title column col-12">Projects</h1>
     <div class="section-line column col-12"></div>
-    </div>
+  </div>
+
   {{! Programming section }}
   <section class="programming-section columns col-12 col-md-12">
     <div class="column col-12">
-    <h1 class="section-title column col-12">Programming</h1>
+      <h1 class="section-title column col-12">Programming</h1>
     </div>
     {{#if hasDatabaseError}}
-   <div>Sorry, there was a problem with the database:<br />
-{{theError}}
-   </div>
-   {{else}}
-    <div class="columns col-12 col-md-12 programming-container">
-      {{#each projects}}
-        {{#if pProgramming}}
-          <div
-            class="thumbnail-container column col-5 col-md-12"
-            id="thumbnail-container"
-          >
-{{#if ../loggedIn}}
- {{#if ../isAdmin}}
-    <div class="icons-container columns col-3 col-md-4">
-      <div class="column col-6 ">
-      <a href="/projects/edit/{{pId}}">
-     <img  src="img/pencil-edit.svg" alt="">
-      </a>
+      <div>Sorry, there was a problem with the database:<br />
+        {{theError}}
       </div>
-      <div class="column col-6 ">
-      <a href="/projects/delete/{{pId}}">
-      <img  src="img/trash.svg" alt="">
-      </a>
-      </div>
-    </div>
-    {{/if}}
-    {{/if}}
-          <a href="/projects/{{pId}}">
-            <div class="columns col-12 col-md-12 thumbnail-image-container">
-              <img class="column col-12 col-md-12" src="{{pURL}}" alt="" />
-              <div class="overlay column col-12 col-md-12">
-                <div class="text">{{pOverlayName}}</div>
-              </div>
+    {{else}}
+      <div class="columns col-12 col-md-12 programming-container">
+        {{#each projects}}
+          {{#if pProgramming}}
+            <div class="thumbnail-container column col-5 col-md-12" id="thumbnail-container">
+              {{#if ../loggedIn}}
+                {{#if ../isAdmin}}
+                  <div class="icons-container columns col-3 col-md-4">
+                    <div class="column col-6">
+                      <a href="/projects/edit/{{pId}}">
+                        <img src="img/pencil-edit.svg" alt="">
+                      </a>
+                    </div>
+                    <div class="column col-6">
+                      <a href="/projects/delete/{{pId}}">
+                        <img src="img/trash.svg" alt="">
+                      </a>
+                    </div>
+                  </div>
+                {{/if}}
+              {{/if}}
+              <a href="/projects/{{pId}}">
+                <div class="columns col-12 col-md-12 thumbnail-image-container">
+                  <img class="column col-12 col-md-12" src="{{pURL}}" alt="" />
+                  <div class="overlay column col-12 col-md-12">
+                    <div class="text">{{pOverlayName}}</div>
+                  </div>
+                </div>
+              </a>
             </div>
-            </a>
-            {{!-- <div class="project-thumbnail-text columns col-12 col-md-12">
-              <div>
-                <h1 class="p-name">{{pName}}</h1>
-              </div>
-              <div class="span-container">
-                <span class="p-author">{{pAuthor}}<span
-                    class="p-date"
-                  >{{pDate}}</span></span> 
-              </div>
-            </div> --}}
-          </div>
-        {{/if}}
-      {{/each}}
-    </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    {{/if}}
   </section>
-  {{! Design desction }}
+
+  {{! Design section }}
   <section class="design-section columns col-12 col-md-12">
     <div class="column col-12 col-md-12">
-    <h1 class="section-title">Design</h1>
-    <div class="section-line column col-12 col-md-12"></div>
+      <h1 class="section-title">Design</h1>
+      <div class="section-line column col-12 col-md-12"></div>
     </div>
     <div class="columns col-12 col-md-12 design-container">
       {{#each projects}}
         {{#if pDesign}}
-          <div
-            class="thumbnail-container column col-5 col-md-12"
-            id="thumbnail-container"
-          >
-{{#if ../loggedIn}}
-{{#if ../isAdmin}}
-    <div class="icons-container columns col-3 col-md-4">
-      <div class="column col-6">
-      <a href="/projects/edit/{{pId}}">
-     <img  src="img/pencil-edit.svg" alt="">
-      </a>
-      </div>
-      <div class="column col-6">
-      <a href="/projects/delete/{{pId}}">
-      <img  src="img/trash.svg" alt="">
-      </a>
-      </div>
-    </div>
-    {{/if}}
-    {{/if}}
-          <a href="/projects/{{pId}}">
-            <div class="columns col-12 col-md-12 thumbnail-image-container">
-              <img class="column col-12 col-md-12" src="{{pURL}}" alt="" />
-              <div class="overlay column col-12 col-md-12">
-                <div class="text">{{pOverlayName}}</div>
+          <div class="thumbnail-container column col-5 col-md-12" id="thumbnail-container">
+            {{#if ../loggedIn}}
+              {{#if ../isAdmin}}
+                <div class="icons-container columns col-3 col-md-4">
+                  <div class="column col-6">
+                    <a href="/projects/edit/{{pId}}">
+                      <img src="img/pencil-edit.svg" alt="">
+                    </a>
+                  </div>
+                  <div class="column col-6">
+                    <a href="/projects/delete/{{pId}}">
+                      <img src="img/trash.svg" alt="">
+                    </a>
+                  </div>
+                </div>
+              {{/if}}
+            {{/if}}
+            <a href="/projects/{{pId}}">
+              <div class="columns col-12 col-md-12 thumbnail-image-container">
+                <img class="column col-12 col-md-12" src="{{pURL}}" alt="" />
+                <div class="overlay column col-12 col-md-12">
+                  <div class="text">{{pOverlayName}}</div>
+                </div>
               </div>
-            </div>
             </a>
-            {{!-- <div class="project-thumbnail-text columns col-12">
-              <div>
-                <h1 class="p-name">{{pName}}</h1>
-              </div>
-              <div class="span-container">
-                <span class="p-author">{{pAuthor}}<span
-                    class="p-date"
-                  >{{pDate}}</span></span>
-              </div>
-            </div> --}}
           </div>
         {{/if}}
       {{/each}}
+      {{#if loggedIn}}
+        {{#if isAdmin}}
+          <div class="add-button-container column col-12">
+            <a class="new-button" href="/projects/new">Add a new project!</a>
+          </div>
+        {{/if}}
       {{/if}}
-{{#if loggedIn}}
-{{#if isAdmin}}
-<div class="add-button-container column col-12">
-  <a class="new-button" href="/projects/new">Add a new project!</a>
-</div>
-{{/if}}
-{{/if}}
     </div>
   </section>
 </main>

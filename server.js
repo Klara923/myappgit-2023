@@ -1,7 +1,7 @@
-const express = require("express"); // loads the express package
-const { engine } = require("express-handlebars"); // loads handlebars for Express
-const port = 1236; // defines the port
-const app = express(); // creates the Express application
+const express = require("express");
+const { engine } = require("express-handlebars");
+const port = 1236;
+const app = express();
 const sqlite3 = require("sqlite3");
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -24,10 +24,6 @@ const oAuth2Client = new google.auth.OAuth2(
   REDIRECT_URI
 );
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-
-// async function sendMail(){
-
-// }
 
 const db = new sqlite3.Database("projects.db");
 
@@ -96,68 +92,6 @@ db.run(
               console.log("Error: ", error.message);
             } else {
               console.log("Line added into the users table");
-            }
-          }
-        );
-      });
-    }
-  }
-);
-
-db.run(
-  "CREATE TABLE images (iId INTEGER PRIMARY KEY, iURL TEXT NOT NULL, iURLAlt TEXT NOT NULL, isTop TEXT NOT NULL, isBottom TEXT NOT NULL)",
-  (error) => {
-    if (error) {
-      console.log("ERROR: ", error.message);
-    } else {
-      console.log("---> Table works created");
-
-      const images = [
-        {
-          iId: "0",
-          iURL: "img/cat2.png",
-          iURLAlt: "cat image",
-          isTop: "1",
-          isBottom: "0",
-        },
-        {
-          iId: "1",
-          iURL: "img/cat1.png",
-          iURLAlt: "cat image",
-          isTop: "1",
-          isBottom: "0",
-        },
-        {
-          iId: "2",
-          iURL: "img/cat3.png",
-          iURLAlt: "cat image",
-          isTop: "0",
-          isBottom: "1",
-        },
-        {
-          iId: "3",
-          iURL: "img/cat4.png",
-          iURLAlt: "cat image",
-          isTop: "0",
-          isBottom: "1",
-        },
-      ];
-
-      images.forEach((oneImg) => {
-        db.run(
-          "INSERT INTO images (iId, iURL, iURLAlt, isTop, isBottom) VALUES (?, ?, ?, ?, ?)",
-          [
-            oneImg.iId,
-            oneImg.iURL,
-            oneImg.iURLAlt,
-            oneImg.isTop,
-            oneImg.isBottom,
-          ],
-          (error) => {
-            if (error) {
-              console.log("Error: ", error.message);
-            } else {
-              console.log("Line added into the images table");
             }
           }
         );
@@ -257,75 +191,6 @@ db.run(
 );
 
 db.run(
-  "CREATE TABLE contacts (cId INTEGER PRIMARY KEY, cURL TEXT, cInfo TEXT, cName TEXT, cLink TEXT)",
-  (error) => {
-    if (error) {
-      console.log("ERROR: ", error.message);
-    } else {
-      console.log("---> Table projects created");
-
-      const contacts = [
-        {
-          cId: "0",
-          cURL: "img/mail-fill.svg",
-          cInfo: "klara.swiecicka@hotmail.com",
-          cName: "mail",
-          cLink: "-",
-        },
-        {
-          cId: "1",
-          cURL: "img/phone.svg",
-          cInfo: "07 07 07 07 07",
-          cName: "phone",
-          cLink: "-",
-        },
-        {
-          cId: "2",
-          cURL: "img/pin.svg",
-          cInfo: "Randomstreet 13, 123-45 Jönköping",
-          cName: "address",
-          cLink: "-",
-        },
-        {
-          cId: "3",
-          cURL: "img/in-white.svg",
-          cInfo: "Klara Swiecicka",
-          cName: "LinkedIn",
-          cLink: "www.linkedin.com/in/klara-swiecicka-824262275",
-        },
-        {
-          cId: "4",
-          cURL: "img/gh-white.svg",
-          cInfo: "Klara923",
-          cName: "GitHub",
-          cLink: "https://github.com/Klara923",
-        },
-      ];
-
-      contacts.forEach((oneContact) => {
-        db.run(
-          "INSERT INTO contacts (cId, cURL, cInfo, cName, cLink) VALUES (?, ?, ?, ?, ?)",
-          [
-            oneContact.cId,
-            oneContact.cURL,
-            oneContact.cInfo,
-            oneContact.cName,
-            oneContact.cLink,
-          ],
-          (error) => {
-            if (error) {
-              console.log("Error: ", error.message);
-            } else {
-              console.log("Line added into the project table");
-            }
-          }
-        );
-      });
-    }
-  }
-);
-
-db.run(
   "CREATE TABLE projects (pId INTEGER PRIMARY KEY, pURL TEXT NOT NULL, pURL1 TEXT NOT NULL, pURL2 TEXT NOT NULL, pName TEXT NOT NULL, pOverlayName TEXT NOT NULL, pAuthor TEXT NOT NULL, pDate TEXT NOT NULL, pDesc TEXT NOT NULL, pProgramming INTEGER, pDesign INTEGER, pTool TEXT NOT NULL, pType TEXT NOT NULL, pProgress TEXT NOT NULL, pLearned TEXT NOT NULL, pLink1Text TEXT NOT NULL, pLink1 TEXT NOT NULL, pLink2Text TEXT NOT NULL, pLink2 TEXT NOT NULL, pPreviousPageBoolean INTEGER, pPreviousPageURL TEXT NOT NULL, pNextPageBoolean INTEGER, pNextPageURL TEXT NOT NULL, pPreviousProjectName TEXT NOT NULL, pNextProjectName TEXT NOT NULL, pDownload INTEGER, pDownload2 INTEGER, pVideo INTERGER)",
   (error) => {
     if (error) {
@@ -338,7 +203,7 @@ db.run(
           pId: "0",
           pURL: "img/projects-img/gameLOS.png",
           pURL1: "img/projects-img/gameLOS1.png",
-          pURL2: "img/lunalander-recording.mp4",
+          pURL2: "img/labyrinth-of-souls.mp4",
           pName: "Game",
           pOverlayName: "Labyrinth Of Souls",
           pAuthor: "Pair",
@@ -438,28 +303,28 @@ db.run(
         },
         {
           pId: "3",
-          pURL: "img/projects-img/frog.png",
-          pURL1: "img/lunalander-recording.mp4",
-          pURL2: "img/lunalander-recording.mp4",
+          pURL: "img/portfolio-website.png",
+          pURL1: "img/portfolio-website1.png",
+          pURL2: "-",
           pName: "Portfolio website",
           pOverlayName: "Portfolio website",
           pAuthor: "Klara S",
-          pDate: "21.05.2023",
+          pDate: "12.2023",
           pDesc:
-            'A "Frogger" game created free time to improve my programming skills. Part of the code is based on the tutorial, and part is written by myself. Some graphics were also created by me.',
+            "My portfolio website is my most advanced programming project. The first version was created as the final project for the Web Development Fundamentals course. Currently, you are using the updated version with improved design and added features, including the ability to send an e-mail or download a PDF. This comprehensive project comprises a dynamic front-end side, based on HTML, Handlebars templates, CSS, Spectre.css, and JavaScript. It is connected to the extensive back-end, built using Node.js, the npm package manager, and a database powered by SQLite.",
 
           pProgramming: "1",
           pDesign: "0",
           pTool: "HTML, CSS, JS, Node.js, Express.js, Handlebars",
           pType: "Website",
           pProgress:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lobortis leo et tellus lobortis condimentum. Praesent sit amet velit tincidunt, semper dui et, sollicitudin purus. Nam purus velit, tincidunt non hendrerit ut, tristique bibendum lorem. Fusce ultrices consequat ex, quis venenatis nulla vehicula ut. Duis ante tellus, tempor vel turpis varius, maximus laoreet felis. Curabitur consectetur, ex vitae efficitur aliquet, nunc massa lacinia ex, eget tempor erat risus nec sapien.",
+            "I initiated the site's development by coding the front-end side with HTML, CSS, and framework spectre.css. Simultaneously, I launched the back-end using Node.js, enabling the creation of a server-side web application. The incorporation of packages, such as Express.js and Handlebars, facilitated dynamic element display and reduced the amount of code written. Further development process included the establishment of an extensive database housing multiple pieces of data about projects and users. By combining SQlite and Node.js, manipulating and using the information like paths to images or texts from the database was not complicated. Additionally, I implemented a user management system, creating a user database with administrative capabilities. Admin-designated users can seamlessly edit, add, and modify data related to users and projects. Prioritizing security, I implemented measures such as session management and password hashing using bcrypt during the login process. Further improvements involved redesigning the front-end side, integrating oAuth2client, and expanding the database.",
           pLearned:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lobortis leo et tellus lobortis condimentum. Praesent sit amet velit tincidunt, semper dui et, sollicitudin purus. Nam purus velit, tincidunt non hendrerit ut, tristique bibendum lorem. Fusce ultrices consequat ex, quis venenatis nulla vehicula ut. Duis ante tellus, tempor vel turpis varius, maximus laoreet felis. Curabitur consectetur, ex vitae efficitur aliquet, nunc massa lacinia ex, eget tempor erat risus nec sapien.",
-          pLink1Text: "Play Now!",
-          pLink1: "https://ju-nmd2022.github.io/fop-final-project-project26/",
-          pLink2Text: "Repository",
-          pLink2: "https://github.com/ju-nmd2022/fop-final-project-project26",
+            "The development of this project helped me understand client-server communication through the HTTP protocol, the concept of request-response patterns, and middleware. This was made possible through the utilization of the JavaScript runtime environment, Node.js, alongside Express.js and relevant npm packages. I gained theoretical and practical knowledge about databases, and how to create and use them. I understood fundamental security principles, especially concerning login procedures and the safeguarding of user data. By implementing these elements in my code, I created an extensive web application while at the same time deepening my knowledge in the field of back-end development. Moreover, through the development process, I polished my skills in utilizing HTML, CSS, the Spectre.css framework, and the creation of responsive design.",
+          pLink1Text: "Repository",
+          pLink1: "https://github.com/Klara923/myappgit-2023",
+          pLink2Text: "",
+          pLink2: "",
           pPreviousPageBoolean: "1",
           pPreviousPageURL: "2",
           pNextPageBoolean: "1",
@@ -479,7 +344,7 @@ db.run(
           pName: "Personal branding - Pixelcat",
           pOverlayName: "Personal branding - Pixelcat",
           pAuthor: "Klara S",
-          pDate: "11.2023",
+          pDate: "12.2023",
           pDesc:
             'Personal branding, an assignment created for the Content Design for New Media course, encompasses elements such as the name "Pixel Cat," logo, typography, and color palette - forming a cohesive and distinctive brand identity. Although Pixel Cat was created for the needs of the course, it is used in my digital activity for example in this portfolio.',
 
@@ -514,7 +379,7 @@ db.run(
           pName: "App high-fidelity prototype - Empowherment",
           pOverlayName: "App high-fidelity prototype - Empowherment",
           pAuthor: "Groupwork",
-          pDate: "22.05.2023",
+          pDate: "10.11.2023",
           pDesc:
             'The "Empowherment" is a comprehensive group project developed for BIP (Blended Intensive Programme) Design IT for a Better Program. The group aimed to contribute to Sustainable Development Goal 10: Reduced Inequalities, so we created a high-fidelity prototype of a digital platform for women in the work environment. The project was developed by students from various European universities partially online, most of the work was done during the final boot camp week at the Amsterdam University of Applied Science. ',
 
@@ -580,7 +445,7 @@ db.run(
         {
           pId: "7",
           pURL: "img/projects-img/cover_1.png",
-          pURL1: "img/lunalander-recording.mp4",
+          pURL1: "img/projects-img/cover.png",
           pURL2: "img/lunalander-recording.mp4",
           pName: "Brochure Cover",
           pOverlayName: "Brochure cover for JTH",
@@ -738,8 +603,12 @@ app.post("/login", (req, res) => {
 
   db.get("SELECT * FROM users WHERE uUserName=?", [username], (err, user) => {
     if (err) {
-      console.log("Wrong username: ", err);
+      console.log("Database error: ", err);
       res.redirect("/login");
+    } else if (!user) {
+      // Username not found
+      console.log("Username not found");
+      res.render("login.handlebars", { notUser: true });
     } else {
       console.log("User: ", user);
       bcrypt.compare(password, user.uPassword, (err, result) => {
@@ -755,7 +624,7 @@ app.post("/login", (req, res) => {
 
           res.redirect("/");
         } else {
-          console.log("User is NOT logged in");
+          console.log("Incorrect password");
           res.redirect("/login");
         }
       });
@@ -1281,34 +1150,6 @@ app.get("/contact", (req, res) => {
   });
 });
 
-// app.post("/contact", (req, res) => {
-//   console.log(req.body);
-//   const transporter = nodemailer.createTransport({
-//     service: "gmail",
-//     auth: {
-//       user: "babcia.grazynkamsp@gmail.com",
-//       pass: "Lolka1234A",
-//     },
-//   });
-
-//   const mailOptions = {
-//     from: req.body.formEmail,
-//     to: "babcia.grazynkamsp@gmail.com",
-//     subject: `Message from ${req.body.formEmail}: ${req.body.formSubject}`,
-//     text: req.body.formMessage,
-//   };
-
-//   transporter.sendMail(mailOptions, (error, info) => {
-//     if (error) {
-//       console.log(`Error: ${error}`);
-//       res.send("Error");
-//     } else {
-//       console.log(`Email sent: ${info.response}`);
-//       res.send("Success");
-//     }
-//   });
-// });
-
 app.post("/contact", (req, res) => {
   console.log(req.body);
 
@@ -1343,12 +1184,6 @@ app.post("/contact", (req, res) => {
     }
   });
 });
-
-// app.get("/contact", (req, res) => {
-//   res.sendFile(__dirname + "contact.handlebars");
-// });
-
-// sends the form for a new contact
 
 app.get("/contact/new", (req, res) => {
   if (req.session.loggedIn == true && req.session.isAdmin == true) {
@@ -1474,15 +1309,6 @@ app.post("/contact/edit/:id", (req, res) => {
     res.redirect("/login");
   }
 });
-
-// app.post("/contact", (req, res) => {
-//   const formBody = [
-//     req.body.formName,
-//     req.body.email,
-//     req.body.
-//   ]
-//   console.log(req.body);
-// });
 
 app.listen(port, () => {
   console.log(`Server running and listening on port ${port}...`);

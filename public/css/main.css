@@ -3,7 +3,8 @@
 @import url("https://fonts.cdnfonts.com/css/akira-expanded");
 @font-face {
   font-family: "Hiragino Kakugo StdN W8";
-  src: url("path-to-your-font/HiraginoKakugoStdN-W8.woff2") format("woff2"),
+  src:
+    url("path-to-your-font/HiraginoKakugoStdN-W8.woff2") format("woff2"),
     url("path-to-your-font/HiraginoKakugoStdN-W8.woff") format("woff");
 
   font-weight: normal;
@@ -12,13 +13,12 @@
 
 @font-face {
   font-family: "Hiragino Kakugo StdN W9";
-  src: url("path-to-your-font/HiraginoKakugoStdN-W9.woff2") format("woff2"),
+  src:
+    url("path-to-your-font/HiraginoKakugoStdN-W9.woff2") format("woff2"),
     url("path-to-your-font/HiraginoKakugoStdN-W9.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
-
-/* font-family: 'Akira Expanded', sans-serif; */
 
 .cols,
 .columns {
@@ -35,7 +35,7 @@
 
 #pixelcat {
   margin-right: 5.5vw;
-  font-size: 14.8vw;
+  font-size: 14.5vw;
   font-family: "Akira Expanded", sans-serif;
   color: var(--clr-neon-green);
   text-shadow: rgba(5, 255, 159, 0.9) 0px 0px 7px;
@@ -57,14 +57,12 @@
 
 @keyframes fadeUp {
   from {
-    opacity: 0; /* Start with opacity 0 */
-    transform: translateY(
-      20px
-    ); /* Optionally, you can add a slight vertical translation */
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    opacity: 1; /* End with opacity 1 (fully visible) */
-    transform: translateY(0); /* End with no vertical translation */
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -120,8 +118,6 @@
   font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
   font-weight: 100;
   display: flex;
-  /* min-width: 20vw;
-  max-width: 1000vw; */
   box-sizing: border-box;
   text-align: center;
   color: var(--clr-neon-green);
@@ -146,7 +142,7 @@
 :root {
   --clr-black: #000000;
   --clr-white: #ffffff;
-  --clr-blue: #2c4bff; /* the color */
+  --clr-blue: #2c4bff;
   --clr-purple: #8205ff;
   --clr-light-purple: #cbc3e3;
   --clr-neon-green: #05ff9f;
@@ -161,13 +157,11 @@ body {
 .main-start {
   padding: 0;
   gap: 2rem;
-  /* min-height: 70vh; */
 }
 
 main {
   padding: 5%;
   gap: 2rem;
-  /* min-height: 70vw; */
 }
 
 .main-projects {
@@ -188,10 +182,6 @@ header.logged-in {
   padding-right: 0rem;
 }
 
-header {
-  /* border-bottom: 0.1px solid var(--clr-neon-green); */
-}
-
 nav.logged-in {
   justify-content: flex-end;
   align-items: center;
@@ -207,18 +197,9 @@ nav {
   align-items: center;
 }
 
-/* All buttons with "button" class, so basically links in navbars */
-
-/* .button {
-  text-align: center;
-  justify-content: flex-start;
-  align-items: center;
-  background: none;
-  border: none;
-  border: 0.5px solid var(--clr-white);
-  padding: 0.3rem 1.4rem;
-  transition: 0.2s;
-} */
+.logo {
+  width: 10vw;
+}
 
 .button-page,
 .button {
@@ -262,8 +243,6 @@ a:hover {
   font-weight: 200;
 }
 
-/* Buttons - portfolio page */
-
 .nav-menu {
   display: flex;
   justify-content: center;
@@ -303,17 +282,6 @@ a:hover {
   padding: 0 3vw;
 }
 
-/* @keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-} */
-
-/* Footer */
-
 footer {
   background: rgba(0, 0, 0, 0.9);
   text-align: center;
@@ -322,8 +290,6 @@ footer {
 footer > * {
   padding: 0.5rem;
 }
-
-/* Home page */
 
 .body-home {
   position: relative;
@@ -338,14 +304,26 @@ footer > * {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.1; /* Adjust the opacity value as needed (0.0 to 1.0) */
+  opacity: 0.1;
   z-index: -1;
 }
 
-/* Form and inputs on login page */
-
 .inputs-container {
-  gap: 1rem;
+  gap: 1vw;
+}
+
+.inputs-container input {
+  margin-bottom: 2vw;
+}
+
+.inputs-container label {
+  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
+  font-weight: 100;
+}
+
+.form-container h1 {
+  margin: 2vw 0;
+  padding: 0;
 }
 
 .login-form-field {
@@ -356,15 +334,22 @@ footer > * {
 }
 
 .login-form-submit {
-  border: none;
+  border: 1px solid var(--clr-white);
   border-radius: 0rem;
-  color: black;
-  background: white;
+  color: var(--clr-black);
+  background: var(--clr-white);
   height: 2rem;
+  font-weight: 900;
+  transition: 0.2s;
+}
+
+.login-form-submit:hover {
+  color: var(--clr-white);
+  background: transparent;
 }
 
 form {
-  gap: 2rem;
+  gap: 2vw;
   justify-content: center;
 }
 
@@ -372,12 +357,18 @@ form {
   justify-content: center;
 }
 
-input:valid {
-  border: 1px solid var(--clr-white);
+.login-form-field.invalid {
+  border-color: #fc8383;
 }
 
-.no-active {
+#login-error-msg-holder {
   display: none;
+  color: #fc8383;
+  margin-top: -1vh;
+}
+
+#login-error-msg-holder.active {
+  display: block;
 }
 
 .section-line {
@@ -390,8 +381,6 @@ input:valid {
 .design-section {
   gap: 2rem;
   animation: fadeUp 2s ease-in-out forwards;
-  /* animation: fade linear; */
-  /* animation-timeline: view(); */
 }
 
 .programming-container,
@@ -482,7 +471,9 @@ input:valid {
   justify-content: flex-end;
 }
 
-/* Individual propject page */
+.highlighted-text {
+  color: var(--clr-neon-green);
+}
 
 .title-container h1 {
   font-family: "Akira Expanded", sans-serif;
@@ -523,13 +514,6 @@ input:valid {
   font-weight: 100;
 }
 
-/* .project-section-2 {
-  justify-content: center;
-  padding: 5vw;
-  gap: 10vh;
-  margin-bottom: 50vh;
-} */
-
 .project-container-1,
 .project-container-2,
 .project-container-3 {
@@ -540,10 +524,10 @@ input:valid {
 }
 
 .project-container-1 {
-  animation: fadeUp 2s ease-in-out forwards, fade linear;
+  animation:
+    fadeUp 2s ease-in-out forwards,
+    fade linear;
   animation-timeline: view();
-  /* animation: fadeUp ease-in-out forwards;
-  animation-timeline: view(); */
 }
 
 .project-container-2,
@@ -583,8 +567,8 @@ input:valid {
 .project-links-container a {
   text-decoration: none;
   position: relative;
-  color: var(--clr-white); /* Set the desired text color */
-  transition: color 0.3s ease; /* Smooth transition for color change */
+  color: var(--clr-white);
+  transition: color 0.3s ease;
   font-family: "Akira Expanded", sans-serif;
   font-size: 3.8vw;
 }
@@ -593,17 +577,17 @@ input:valid {
   content: "";
   position: absolute;
   width: 100%;
-  height: 0.2vw; /* Set the desired underline height */
+  height: 0.2vw;
   bottom: 0;
   left: 0;
-  background-color: var(--clr-neon-green); /* Set the desired underline color */
-  transform: scaleX(0); /* Initial state: invisible */
+  background-color: var(--clr-neon-green);
+  transform: scaleX(0);
   transform-origin: bottom right;
-  transition: transform 0.3s ease; /* Animation duration and easing */
+  transition: transform 0.3s ease;
 }
 
 .project-links-container a:hover {
-  color: var(--clr-neon-green); /* Set the desired text color on hover */
+  color: var(--clr-neon-green);
 }
 
 .project-img-container {
@@ -619,7 +603,6 @@ input:valid {
   border: 1px solid var(--clr-neon-green);
   background: var(--clr-black);
   color: var(--clr-neon-green);
-  /* margin-top: 2rem; */
   padding: 1vw;
   text-transform: uppercase;
   font-weight: 800;
@@ -631,86 +614,6 @@ input:valid {
   background: var(--clr-neon-green);
   color: var(--clr-black);
 }
-
-/* .arrow-container-left,
-.arrow-container-right {
-  display: flex;
-  align-items: center;
-}
-
-.arrow-container-left a,
-.arrow-container-right a {
-  text-decoration: none; 
-  display: flex;
-  align-items: center;
-}
-
-.arrow-container-left a {
-  display: flex;
-  justify-content: start;
-}
-
-.arrow-container-right a {
-  display: flex;
-  justify-content: end;
-}
-
-.arrow-container-right span {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.arrow-container-left,
-.arrow-container-right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.arrow-container-left a,
-.arrow-container-right a {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.arrow-container-left a:after,
-.arrow-container-right a:after {
-  content: "";
-  position: absolute;
-  width: 80%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-
-  background-color: var(--clr-neon-green);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-.arrow-container-left a:after {
-  left: 0;
-}
-
-.arrow-container-right a:after {
-  left: 7.4vw;
-}
-
-.arrow-container-left a:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.arrow-container-right a:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom right;
-}
-
-.arrow-container svg {
-  width: 5.5vw;
-  fill: var(--clr-white);
-} */
 
 .arrows-container {
   display: flex;
@@ -754,12 +657,6 @@ input:valid {
   border: 0.5px solid var(--clr-white);
   height: 0;
 }
-
-/* Contact page */
-
-/* .contacts {
-  gap: 0.5vw;
-} */
 
 .main-contact {
   animation: fadeUp 2s ease-in-out forwards;
@@ -825,8 +722,6 @@ input:valid {
   padding: 0.5rem;
 }
 
-/* Projects page */
-
 .icons-container img {
   width: 100%;
 }
@@ -848,7 +743,6 @@ input:valid {
   color: var(--clr-black) !important;
   padding: 0.5rem;
 }
-/* New and edit project */
 
 .new-project-button,
 .edit-project-button,
@@ -917,13 +811,80 @@ input:valid {
   margin-top: 1rem;
 }
 
+.contact-form {
+  display: flex;
+  justify-content: start;
+}
+
+.contact-form input {
+  border: none;
+  border-bottom: 1px solid var(--clr-neon-green);
+  background: transparent;
+  color: var(--clr-neon-green);
+  padding: 1vw;
+}
+
+.contact-form textarea {
+  border: 1px solid var(--clr-neon-green);
+  color: var(--clr-neon-green);
+  background: transparent;
+  padding: 1vw;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(5, 255, 159, 0.5);
+}
+
+.contact-form h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  color: var(--clr-neon-green);
+  text-transform: uppercase;
+  font-size: 2vw;
+  letter-spacing: 0.01vw;
+}
+
+.contact-container span {
+  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
+  font-weight: 100;
+  font-size: 0.7rem;
+}
+
+#submitContact {
+  border: 1px solid var(--clr-neon-green);
+  text-transform: uppercase;
+  font-weight: 800;
+  background-color: var(--clr-neon-green);
+  color: var(--clr-black);
+  padding: 0.5rem;
+  transition: 0.2s;
+}
+
+#submitContact:hover {
+  border: 1px solid var(--clr-neon-green);
+  background-color: var(--clr-black);
+  color: var(--clr-neon-green);
+}
+
 @media only screen and (max-width: 850px) {
+  main {
+    min-height: 70vh;
+  }
   header.logged-in {
     padding: 1rem;
     padding-right: 2rem;
   }
   .logo-container h1.logged-in {
     font-size: 1.3rem;
+  }
+  .logo-container {
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  .logo {
+    width: 15vw;
   }
   .s-screen {
     display: block;
@@ -985,8 +946,6 @@ input:valid {
     font-size: 3em;
   }
 
-  /* Home page */
-
   #pixelcat {
     font-size: 14vw;
   }
@@ -1007,14 +966,6 @@ input:valid {
   .slider {
     height: 15vw;
   }
-  /*   
-  .text-items {
-    display: inline-block;
-    animation: 50s slide infinite linear;
-    justify-content: center;
-    align-items: center;
-    padding: 1vw 0;
-  } */
 
   .text-item,
   .star {
@@ -1026,8 +977,6 @@ input:valid {
     margin: 0 2vw;
   }
 
-  /* Headlines and headers */
-
   .main-title {
     font-family: "Akira Expanded", sans-serif;
     font-size: 12vw;
@@ -1037,8 +986,6 @@ input:valid {
   .section-title {
     font-size: 8vw;
   }
-
-  /* Projects page responsive */
 
   .text {
     font-size: 7vw;
@@ -1062,8 +1009,6 @@ input:valid {
     height: 50vh;
   }
 
-  /* Project page */
-
   .working-process {
     flex-direction: column-reverse;
   }
@@ -1081,23 +1026,6 @@ input:valid {
     width: 100%;
     display: block;
   }
-
-  /* .link1 {
-    font-size: 5vw;
-    display: flex;
-    justify-content: end;
-  }
-  
-  .project-links-container {
-    display: flex;
-    gap: 2vw;
-  }
-  
-  .project-links-container a,
-  .project-links-container form {
-    display: flex;
-    justify-content: start;
-  } */
 
   .project-links-container a {
     font-size: 7vw;
@@ -1122,14 +1050,12 @@ input:valid {
     font-size: 3vw;
   }
 
-  /* Contact page */
-
   .contact-section {
     gap: 15vw;
   }
 
-  .contact-container a {
-    justify-content: space-between;
+  .contact-container a span {
+    font-size: 5vw;
   }
 
   .contacts {
@@ -1139,61 +1065,30 @@ input:valid {
   .contact-form h2 {
     font-size: 6vw !important;
   }
-}
 
-/* Contact form */
+  .contact-form {
+    gap: 4vh;
+  }
 
-.contact-form {
-  display: flex;
-  justify-content: start;
-}
+  #login-error-msg-holder {
+    font-size: 3vw;
+    margin-top: -8vw;
+  }
 
-.contact-form input {
-  border: none;
-  border-bottom: 1px solid var(--clr-neon-green);
-  background: transparent;
-  color: var(--clr-neon-green);
-  padding: 1vw;
-}
+  .inputs-container {
+    gap: 3vw;
+  }
 
-.contact-form textarea {
-  border: 1px solid var(--clr-neon-green);
-  background: transparent;
-  padding: 1vw;
-}
+  .inputs-container input {
+    margin-bottom: 5vw;
+  }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(5, 255, 159, 0.5);
-}
+  #password {
+    margin-bottom: 10vw;
+  }
 
-.contact-form h2 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  color: var(--clr-neon-green);
-  text-transform: uppercase;
-  font-size: 2vw;
-  letter-spacing: 0.01vw;
-}
-
-.contact-container span {
-  font-family: "Helvetica Light", "Helvetica", Arial, sans-serif;
-  font-weight: 100;
-  font-size: 0.7rem;
-}
-
-#submitContact {
-  border: 1px solid var(--clr-neon-green);
-  text-transform: uppercase;
-  font-weight: 800;
-  background-color: var(--clr-neon-green);
-  color: var(--clr-black);
-  padding: 0.5rem;
-  transition: 0.2s;
-}
-
-#submitContact:hover {
-  border: 1px solid var(--clr-neon-green);
-  background-color: var(--clr-black);
-  color: var(--clr-neon-green);
+  .login-form-submit {
+    height: 15vw;
+    font-size: 7vw;
+  }
 }

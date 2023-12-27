@@ -5,7 +5,8 @@
 @import url("https://fonts.cdnfonts.com/css/akira-expanded");
 @font-face {
   font-family: "Hiragino Kakugo StdN W8";
-  src: url("path-to-your-font/HiraginoKakugoStdN-W8.woff2") format("woff2"),
+  src:
+    url("path-to-your-font/HiraginoKakugoStdN-W8.woff2") format("woff2"),
     url("path-to-your-font/HiraginoKakugoStdN-W8.woff") format("woff");
 
   font-weight: normal;
@@ -14,13 +15,12 @@
 
 @font-face {
   font-family: "Hiragino Kakugo StdN W9";
-  src: url("path-to-your-font/HiraginoKakugoStdN-W9.woff2") format("woff2"),
+  src:
+    url("path-to-your-font/HiraginoKakugoStdN-W9.woff2") format("woff2"),
     url("path-to-your-font/HiraginoKakugoStdN-W9.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
-
-/* font-family: 'Akira Expanded', sans-serif; */
 
 *,
 *::before,
@@ -37,7 +37,7 @@
 
   --clr-black: #000000;
   --clr-white: #ffffff;
-  --clr-blue: #2c4bff; /* the color */
+  --clr-blue: #2c4bff;
   --clr-purple: #8205ff;
   --clr-light-purple: #cbc3e3;
   --clr-neon-green: #05ff9f;
@@ -66,13 +66,13 @@ li {
 }
 
 .photo-container img {
-  width: 30vw;
-  /* max-width: 5vw;
-  min-width: 20vw; */
+  width: 35vw;
   position: relative;
   z-index: -10;
   border-radius: 30%;
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .line-with-stars-container,
@@ -111,8 +111,7 @@ li {
 
 .header-section {
   align-items: center;
-  gap: 1rem;
-  padding: 3rem;
+  padding-right: 5vw;
 }
 
 .main-section {
@@ -121,17 +120,8 @@ li {
 
 .desc-container {
   width: 70%;
-  margin-left: 20rem;
+  margin-left: 30vw;
 }
-
-/* .nmd {
-  padding: 0.3rem 0.6rem;
-  color: var(--clr-purple);
-  border: 1px solid var(--clr-purple);
-  font-weight: 300;
-  z-index: 10;
-  margin-bottom: 1rem;
-} */
 
 .names-container {
   line-height: 4rem;
@@ -203,7 +193,6 @@ li {
 .work-exp h2,
 .oth-exp h2 {
   font-size: 2vw;
-  /* border-bottom: 2vw; */
 }
 
 .left-column {
@@ -266,7 +255,7 @@ h2 {
 .cv-container li,
 .cv-container p {
   font-weight: 300;
-  font-size: 0.9em;
+  font-size: 1.2vw;
 }
 
 .skill {
@@ -309,7 +298,12 @@ h2 {
   width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 850px) {
+  .cv-container li,
+  .cv-container p {
+    font-size: 4vw;
+  }
+
   .edu h2,
   .work-exp h2,
   .oth-exp h2 {
@@ -326,42 +320,42 @@ h2 {
   }
 
   .desc-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-left: 0rem;
   }
 
   .photo-container {
     position: relative;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .photo-container img {
-    width: 60vw;
+    width: 70vw;
   }
 
   .last-name {
-    /* margin-left: -15vw; */
     font-size: 8vw;
     letter-spacing: 2vw;
   }
 
   .first-name {
     margin-left: -15vw;
-
-    /* font-size: 6vw; */
   }
 
   .about-me-desc {
-    border: 1px solid yellow;
     width: 75vw;
   }
 
   .left-column {
-    /* padding: 4rem 2rem;
-    margin-top: 2rem; */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* text-align: center; */
   }
 
   .left-column-container {
@@ -376,8 +370,6 @@ h2 {
   }
 
   .skill-container {
-    /* display: flex;
-    justify-content: start; */
     gap: 1vw;
   }
 
@@ -392,10 +384,6 @@ h2 {
   .skill-container p {
     font-size: 4vw;
   }
-
-  /* .skill-desc {
-    font-weight: 600 !important;
-  } */
 
   .skill {
     font-size: 7vw !important;

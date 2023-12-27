@@ -3,7 +3,10 @@
   <!-- logo -->
   <div class="logo-container logged-in column col-1 col-md-4">
     <a href="/">
-    <img src="/img/black cat green border.png" class="logo logged-in column col-8 col-md-8"></img>
+      <img
+        src="/img/black cat green border.png"
+        class="logo logged-in column col-8 col-md-8"
+      />
     </a>
   </div>
 
@@ -16,7 +19,7 @@
   <nav class="closed nav-menu logged-in column col-8 col-md-12">
     <!-- x icon -->
     <div class="column s-screen logged-in x-icon column col-2 col-md-2">
-      <i  class="fa-solid fa-x logged-in column col-2 col-md-2"></i>
+      <i class="fa-solid fa-x logged-in column col-2 col-md-2"></i>
     </div>
 
     <!-- Pages -->
@@ -48,9 +51,6 @@
               class="column col-12 col-md-12 button-page"
             >Contact</a>
           </div>
-
-          
-
         </div>
       </div>
       <!-- Login -->
@@ -58,31 +58,28 @@
 
         <div class="column col-12 sign-div">
           {{#if loggedIn}}
- <a
-            href="/logout"
-            class="column col-12 col-md-12 button logged-in sign-a"
-          >Logout</a>
-        </div>
+            <a
+              href="/logout"
+              class="column col-12 col-md-12 button logged-in sign-a"
+            >Logout</a>
           {{else}}
-<a
-            href="/login"
-            class="column col-12 col-md-12 button logged-in sign-a"
-          >Login</a>
-        </div>
+            <a
+              href="/login"
+              class="column col-12 col-md-12 button logged-in sign-a"
+            >Login</a>
           {{/if}}
 
           {{#if loggedIn}}
-          {{#if isAdmin}}
-          <div class="column col-12 col-md-12 btn-users">
-            <a
-              href="/users"
-              class="column col-12 col-md-12 button logged-in sign-a "
-            >Users</a>
-          </div>
+            {{#if isAdmin}}
+              <div class="column col-12 col-md-12 btn-users">
+                <a
+                  href="/users"
+                  class="column col-12 col-md-12 button logged-in sign-a"
+                >Users</a>
+              </div>
+            {{/if}}
           {{/if}}
-          {{/if}}
-         
-
+        </div>
       </div>
     </div>
   </nav>
