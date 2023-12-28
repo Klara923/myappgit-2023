@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function () {
       console.log(xhr.responseText);
-      if (xhr.responseText.includes("Email sent, thank you!")) {
-        alert("Success");
+      if (xhr.responseText.includes("Succsess")) {
+        alert("Email sent successfully. Thank you!");
         formName.value = "";
         formEmail.value = "";
         formSubject.value = "";
