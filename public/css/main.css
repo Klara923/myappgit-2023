@@ -869,7 +869,7 @@ form {
 
 @media only screen and (max-width: 850px) {
   main {
-    min-height: 70vh;
+    min-height: 90vh;
   }
   header.logged-in {
     padding: 1rem;
@@ -961,10 +961,12 @@ form {
   .pixelcat-container {
     display: flex;
     gap: 5vw;
+    margin-top: 20vw;
   }
 
   .slider {
     height: 15vw;
+    margin-top: 15vw;
   }
 
   .text-item,

@@ -1121,33 +1121,29 @@ app.get("/projects/delete/:id", (req, res) => {
 // contacts
 
 app.get("/contact", (req, res) => {
-  db.all("SELECT * FROM contacts", (error, theContacts) => {
-    if (error) {
-      const model = {
-        hasDatabaseError: true,
-        theError: error,
-        contacts: [],
-        title: "Contact page",
-        loggedIn: req.session.loggedIn,
-        name: req.session.name,
-        isAdmin: req.session.isAdmin,
-      };
+  try {
+    const model = {
+      hasDatabaseError: false,
+      theError: "",
+      title: "Contact page",
+      loggedIn: req.session.loggedIn,
+      name: req.session.name,
+      isAdmin: req.session.isAdmin,
+    };
 
-      res.render("contact.handlebars", model);
-    } else {
-      const model = {
-        hasDatabaseError: false,
-        theError: "",
-        contacts: theContacts,
-        title: "Contact page",
-        loggedIn: req.session.loggedIn,
-        name: req.session.name,
-        isAdmin: req.session.isAdmin,
-      };
-      console.log(theContacts);
-      res.render("contact.handlebars", model);
-    }
-  });
+    res.render("contact.handlebars", model);
+  } catch (error) {
+    const model = {
+      hasDatabaseError: true,
+      theError: error,
+      title: "Contact page",
+      loggedIn: req.session.loggedIn,
+      name: req.session.name,
+      isAdmin: req.session.isAdmin,
+    };
+
+    res.render("contact.handlebars", model);
+  }
 });
 
 app.post("/contact", (req, res) => {
