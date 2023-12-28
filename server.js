@@ -305,7 +305,7 @@ db.run(
           pId: "3",
           pURL: "img/portfolio-website.png",
           pURL1: "img/portfolio-website1.png",
-          pURL2: "img/portfolio-website-recording-1.mp4",
+          pURL2: "img/portfolio-website-recording-compressed.mp4",
           pName: "Portfolio website",
           pOverlayName: "Portfolio website",
           pAuthor: "Klara S",
