@@ -446,7 +446,7 @@ db.run(
           pId: "7",
           pURL: "img/projects-img/cover_1.png",
           pURL1: "img/projects-img/cover.png",
-          pURL2: "img/lunalander-recording.mp4",
+          pURL2: "",
           pName: "Brochure Cover",
           pOverlayName: "Brochure cover for JTH",
           pAuthor: "Klara S",
