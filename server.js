@@ -1,6 +1,6 @@
 const express = require("express");
 const { engine } = require("express-handlebars");
-const port = 1236;
+const port = process.env.PORT || 1236;
 const app = express();
 const sqlite3 = require("sqlite3");
 const bodyParser = require("body-parser");
