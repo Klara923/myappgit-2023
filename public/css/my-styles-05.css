@@ -130,7 +130,7 @@ li {
 }
 
 .last-name {
-  font-size: 1.5em;
+  font-size: 4vw;
   color: var(--clr-neon-green);
   z-index: -1;
   z-index: 20;
