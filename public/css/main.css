@@ -186,6 +186,7 @@ nav.logged-in {
   justify-content: flex-end;
   align-items: center;
   margin-top: 0.5rem;
+  padding-right: 3vw;
 }
 
 nav {
@@ -210,6 +211,19 @@ nav {
   text-align: center;
   justify-content: center;
   font-size: 1rem;
+}
+
+.sign-div a {
+  border: 1px solid var(--clr-white);
+  background: transparent;
+  padding: 0.5vw 3vw;
+  transition: 0.5s;
+  justify-content: center !important;
+}
+
+.sign-div a:hover {
+  background: var(--clr-white);
+  color: var(--clr-black);
 }
 
 .s-screen {
@@ -440,6 +454,10 @@ form {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 .project-thumbnail-text {
@@ -924,9 +942,9 @@ form {
   .buttons-pages {
     gap: 1rem;
   }
+
   .buttons-container {
     padding-top: 2vw;
-
     display: flex;
   }
 
@@ -936,6 +954,24 @@ form {
     max-width: 2vw;
     justify-content: flex-start;
     font-size: 4vw;
+  }
+
+  .sign-div {
+    margin-top: 8vw;
+  }
+
+  .sign-div a {
+    border: 1px solid var(--clr-white);
+    background: transparent;
+    padding: 1vw;
+    transition: 0.5s;
+    max-width: 20vw !important;
+    justify-content: center !important;
+  }
+
+  .sign-div a:hover {
+    background: var(--clr-white);
+    color: var(--clr-black);
   }
 
   iframe {
