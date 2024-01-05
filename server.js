@@ -269,7 +269,7 @@ db.run(
         },
         {
           pId: "2",
-          pURL: "img/projects-img/london.png",
+          pURL: "img/london-website.png",
           pURL1: "img/london1.png",
           pURL2: "img/london-recording.mp4",
           pName: "Website",
@@ -303,7 +303,7 @@ db.run(
         },
         {
           pId: "3",
-          pURL: "img/portfolio-website.png",
+          pURL: "img/website-mockup.png",
           pURL1: "img/portfolio-website1.png",
           pURL2: "img/portfolio-website-recording-compressed.mp4",
           pName: "Portfolio website",
@@ -479,7 +479,7 @@ db.run(
 
         {
           pId: "8",
-          pURL: "img/projects-img/second.png",
+          pURL: "img/second-chance-website.png",
           pURL1: "img/secondchance1.png",
           pURL2: "img/secondchance-recording-1.mp4",
           pName: "Website Prototype",
