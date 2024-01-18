@@ -11,8 +11,6 @@ const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 
-// Test
-
 let CLIENT_ID =
   "53439647932-rb40447mt49vci7jno1nk3e12cl112tc.apps.googleusercontent.com";
 let CLIENT_SECRET = "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";
